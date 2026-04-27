@@ -1,0 +1,843 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+html, body{
+  margin:0 !important;
+  padding:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+  background:#fff;
+  scroll-behavior:smooth;
+}
+
+.lf-page{
+  --lf-green:#56AA43;
+  --lf-green-hover:#429133;
+  --lf-green-soft:#EEF7EB;
+  --lf-dark:#4D525A;
+  --lf-dark-2:#3F444B;
+  --lf-gray:#969799;
+  --lf-white:#FFFFFF;
+  --lf-bg:#F5F6F5;
+  --lf-bg-2:#EEF1EE;
+  --lf-line:rgba(77,82,90,0.10);
+  --lf-radius:8px;
+  --lf-radius-lg:18px;
+  --lf-radius-xl:26px;
+  --lf-shadow:0 10px 30px rgba(0,0,0,0.08);
+  --lf-shadow-soft:0 8px 22px rgba(0,0,0,0.05);
+  --lf-shadow-hover:0 22px 46px rgba(0,0,0,0.14);
+  --lf-container:1280px;
+
+  font-family:'Barlow', sans-serif;
+  color:#555;
+  background:var(--lf-white);
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  position:relative;
+}
+
+.lf-page *,
+.lf-page *::before,
+.lf-page *::after{
+  box-sizing:border-box !important;
+}
+
+.lf-container{
+  width:100%;
+  max-width:var(--lf-container);
+  margin:0 auto;
+  padding:0 28px;
+  position:relative;
+  z-index:2;
+}
+
+.lf-section{
+  position:relative;
+  overflow:hidden;
+  padding:92px 0;
+}
+
+.lf-section--light{
+  background:var(--lf-white);
+}
+
+.lf-section--alt{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.05), transparent 28%),
+    linear-gradient(180deg, #F7F8F7 0%, #F2F4F2 100%);
+}
+
+.lf-section--dark{
+  background:linear-gradient(180deg, #4D525A 0%, #434850 100%);
+  color:var(--lf-white);
+}
+
+.lf-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  padding:9px 16px;
+  border-radius:999px;
+  font-size:12px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--lf-green);
+  background:rgba(86,170,67,0.10);
+  border:1px solid rgba(86,170,67,0.16);
+  box-shadow:0 6px 18px rgba(86,170,67,0.08);
+}
+
+.lf-label::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--lf-green);
+  box-shadow:0 0 0 6px rgba(86,170,67,0.12);
+}
+
+.lf-section--dark .lf-label,
+.lf-hero .lf-label{
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.12);
+  box-shadow:none;
+}
+
+.lf-section--dark .lf-label::before,
+.lf-hero .lf-label::before{
+  background:#9BEA8A;
+  box-shadow:0 0 0 6px rgba(155,234,138,0.16);
+}
+
+.lf-title{
+  margin:0 0 16px;
+  font-size:clamp(28px, 3.1vw, 44px);
+  line-height:1.08;
+  font-weight:800;
+  color:var(--lf-dark);
+  letter-spacing:-0.02em;
+  position:relative;
+  padding-left:18px;
+}
+
+.lf-title::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:4px;
+  bottom:4px;
+  width:5px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--lf-green) 0%, #7FCF6D 100%);
+}
+
+.lf-section--dark .lf-title{
+  color:var(--lf-white);
+}
+
+.lf-section--dark .lf-title::before{
+  background:linear-gradient(180deg, #8DDF7A 0%, #56AA43 100%);
+}
+
+.lf-text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:400;
+  color:#5A5F66;
+}
+
+.lf-section--dark .lf-text{
+  color:rgba(255,255,255,0.88);
+}
+
+.lf-section-head{
+  max-width:900px;
+  margin-bottom:46px;
+}
+
+.lf-deco-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0.45), transparent 85%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.lf-deco-grid--dark{
+  background-image:
+    linear-gradient(rgba(77,82,90,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,82,90,0.03) 1px, transparent 1px);
+}
+
+.lf-btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+
+.lf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid transparent;
+  font-size:15px;
+  line-height:1.3;
+  font-weight:700;
+  text-align:center;
+  transition:transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease;
+  cursor:pointer;
+  width:auto;
+  max-width:100%;
+  min-height:54px;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, rgba(255,255,255,0.14), rgba(255,255,255,0));
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+}
+
+.lf-btn:hover::before{
+  transform:translateX(100%);
+}
+
+.lf-btn span,
+.lf-btn svg{
+  position:relative;
+  z-index:1;
+}
+
+.lf-btn svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+.lf-btn--primary{
+  background:linear-gradient(180deg, var(--lf-green) 0%, #4B9A3B 100%);
+  color:var(--lf-white);
+  box-shadow:0 14px 28px rgba(86,170,67,0.20);
+}
+
+.lf-btn--primary:hover{
+  background:linear-gradient(180deg, #5EB94A 0%, var(--lf-green-hover) 100%);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(86,170,67,0.28);
+}
+
+.lf-btn--outline{
+  background:transparent;
+  border-color:var(--lf-dark);
+  color:var(--lf-dark);
+}
+
+.lf-btn--outline:hover{
+  background:var(--lf-dark);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+}
+
+.lf-section--dark .lf-btn--outline,
+.lf-hero .lf-btn--outline{
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.34);
+  color:#fff;
+  backdrop-filter:blur(8px);
+}
+
+.lf-section--dark .lf-btn--outline:hover,
+.lf-hero .lf-btn--outline:hover{
+  background:#fff;
+  color:var(--lf-dark);
+}
+
+/* HERO COM O MESMO DEGRADÊ DA PRIMEIRA SEÇÃO DO SEGUNDO CÓDIGO */
+.lf-hero{
+  position:relative;
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  padding:120px 0 80px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(77,82,90,0.95) 0%,
+      rgba(77,82,90,0.85) 40%,
+      rgba(77,82,90,0.60) 70%,
+      rgba(77,82,90,0.40) 100%
+    ),
+    url("img/Imagem hero produtos.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.lf-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:transparent;
+  z-index:0;
+  pointer-events:none;
+}
+
+.lf-hero__content{
+  max-width:900px;
+  position:relative;
+  z-index:1;
+}
+
+.lf-hero__title{
+  margin:0 0 18px;
+  font-size:clamp(34px, 5vw, 64px);
+  line-height:.98;
+  font-weight:800;
+  color:#FFFFFF;
+  letter-spacing:-0.03em;
+  text-shadow:0 8px 30px rgba(0,0,0,0.22);
+}
+
+.lf-hero__text{
+  margin:0;
+  font-size:18px;
+  line-height:1.75;
+  color:rgba(255,255,255,0.92);
+  max-width:700px;
+}
+
+.lf-hero-highlights{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+  margin-top:34px;
+  max-width:560px;
+}
+
+.lf-hero-highlight{
+  min-height:112px;
+  padding:22px 26px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.20);
+  backdrop-filter:blur(10px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.16);
+}
+
+.lf-hero-highlight__number{
+  display:block;
+  margin-bottom:8px;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-0.02em;
+}
+
+.lf-hero-highlight__text{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.84);
+  font-weight:700;
+}
+
+/* PROCESSO */
+.lf-process-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:24px;
+}
+
+.lf-process-card{
+  position:relative;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 100%);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:22px;
+  padding:30px 24px 26px;
+  box-shadow:var(--lf-shadow-soft);
+  height:100%;
+  transition:transform .30s ease, box-shadow .30s ease, border-color .30s ease;
+  overflow:hidden;
+}
+
+.lf-process-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg, var(--lf-green) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-process-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow-hover);
+  border-color:rgba(86,170,67,0.12);
+}
+
+.lf-process-card__number{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  background:var(--lf-green);
+  color:#fff;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.lf-process-card__icon{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  border-radius:16px;
+  background:rgba(86,170,67,0.10);
+}
+
+.lf-process-card__icon svg{
+  width:28px;
+  height:28px;
+  stroke:var(--lf-green);
+}
+
+.lf-process-card__title{
+  margin:0 0 12px;
+  font-size:20px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-process-card__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.75;
+  color:#555;
+}
+
+/* CASES */
+.lf-cases-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:24px;
+}
+
+.lf-case-card{
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 100%);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--lf-shadow-soft);
+  height:100%;
+  transition:transform .30s ease, box-shadow .30s ease, border-color .30s ease;
+}
+
+.lf-case-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow-hover);
+  border-color:rgba(86,170,67,0.12);
+}
+
+.lf-case-card__image{
+  width:100%;
+  aspect-ratio:4 / 3;
+  background:#EDEFEA;
+  overflow:hidden;
+  position:relative;
+}
+
+.lf-case-card__image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .45s ease;
+}
+
+.lf-case-card:hover .lf-case-card__image img{
+  transform:scale(1.05);
+}
+
+.lf-case-card__content{
+  padding:24px 22px 26px;
+  flex:1;
+}
+
+.lf-case-card__title{
+  margin:0 0 12px;
+  font-size:20px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-case-card__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.75;
+  color:#555;
+}
+
+/* CTA FINAL */
+.lf-final-cta{
+  text-align:center;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.lf-final-cta .lf-title{
+  display:inline-block;
+  text-align:left;
+  max-width:760px;
+  padding-left:0;
+}
+
+.lf-final-cta .lf-title::before{
+  display:none;
+}
+
+.lf-final-cta .lf-text{
+  max-width:760px;
+  margin:0 auto;
+}
+
+/* RESPONSIVO */
+@media (max-width:1024px){
+  .lf-section{
+    padding:76px 0;
+  }
+
+  .lf-container{
+    padding:0 22px;
+  }
+
+  .lf-process-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .lf-cases-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
+
+  .lf-hero{
+    min-height:auto;
+    padding:110px 0 80px;
+  }
+}
+
+@media (max-width:768px){
+  .lf-section{
+    padding:58px 0;
+  }
+
+  .lf-container{
+    padding:0 20px;
+  }
+
+  .lf-hero{
+    padding:96px 0 66px;
+  }
+
+  .lf-hero__text{
+    font-size:16px;
+  }
+
+  .lf-hero-highlights{
+    grid-template-columns:1fr;
+    max-width:100%;
+    gap:14px;
+    margin-top:34px;
+  }
+
+  .lf-hero-highlight{
+    min-height:auto;
+    padding:22px 24px;
+  }
+
+  .lf-btn-group{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .lf-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .lf-process-grid,
+  .lf-cases-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:480px){
+  .lf-section{
+    padding:48px 0;
+  }
+
+  .lf-container{
+    padding:0 16px;
+  }
+
+  .lf-hero{
+    padding:88px 0 58px;
+  }
+
+  .lf-hero__title{
+    font-size:clamp(28px, 9vw, 42px);
+  }
+
+  .lf-title{
+    padding-left:14px;
+    font-size:clamp(24px, 7vw, 34px);
+  }
+
+  .lf-hero-highlight__number{
+    font-size:24px;
+  }
+
+  .lf-hero-highlight__text{
+    font-size:15px;
+  }
+
+  .lf-process-card,
+  .lf-case-card__content{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .lf-text,
+  .lf-process-card__text,
+  .lf-case-card__text{
+    font-size:15px;
+  }
+
+  .lf-final-cta .lf-title{
+    padding-left:0;
+  }
+}
+</style>
+
+<div class="lf-page">
+
+  <section class="lf-section lf-section--dark lf-hero">
+    <div class="lf-deco-grid"></div>
+
+    <div class="lf-container">
+      <div class="lf-hero__content">
+
+        <h1 class="lf-hero__title">
+          Projetos personalizados: sua operação, nossa solução
+        </h1>
+
+        <p class="lf-hero__text">
+          Cada processo é único. Por isso, além da nossa linha padrão, desenvolvemos projetos modulares completamente personalizados, do briefing à instalação.
+        </p>
+
+        <div class="lf-btn-group">
+          <a href="/contato" class="lf-btn lf-btn--primary" aria-label="Iniciar um projeto">
+            <span>Iniciar um projeto</span>
+          </a>
+
+          <a href="https://wa.me/5541995840097" class="lf-btn lf-btn--outline" aria-label="Falar pelo WhatsApp">
+            <span>Falar pelo WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="lf-hero-highlights">
+          <div class="lf-hero-highlight">
+            <span class="lf-hero-highlight__number">Personalizado</span>
+            <span class="lf-hero-highlight__text">Do briefing à instalação, pensado para sua rotina</span>
+          </div>
+
+          <div class="lf-hero-highlight">
+            <span class="lf-hero-highlight__number">Sob medida</span>
+            <span class="lf-hero-highlight__text">Desenvolvido conforme o fluxo da sua operação</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="lf-section lf-section--alt">
+    <div class="lf-deco-grid lf-deco-grid--dark"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-head">
+        <h2 class="lf-title">Como desenvolvemos um projeto personalizado</h2>
+        <p class="lf-text">
+          Do primeiro contato até a entrega, nosso processo é pensado para entender a sua operação com clareza e transformar a necessidade em uma estrutura funcional, modular e pronta para uso.
+        </p>
+      </div>
+
+      <div class="lf-process-grid">
+
+        <article class="lf-process-card">
+          <div class="lf-process-card__number">1</div>
+          <div class="lf-process-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 5H20M4 12H14M4 19H10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M16 16L18 18L22 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-process-card__title">Entendimento do processo</h3>
+          <p class="lf-process-card__text">
+            Nossa equipe conversa com você para entender as necessidades, fluxos, cargas e espaços envolvidos.
+          </p>
+        </article>
+
+        <article class="lf-process-card">
+          <div class="lf-process-card__number">2</div>
+          <div class="lf-process-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 4H20V20H4V4Z" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M8 8H16M8 12H16M8 16H12" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-process-card__title">Proposta e dimensionamento</h3>
+          <p class="lf-process-card__text">
+            Desenvolvemos a solução com base nos dados coletados, apresentando configurações e variações para sua avaliação.
+          </p>
+        </article>
+
+        <article class="lf-process-card">
+          <div class="lf-process-card__number">3</div>
+          <div class="lf-process-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 7L12 3L21 7L12 11L3 7Z" stroke-width="2" stroke-linejoin="round"></path>
+              <path d="M3 12L12 16L21 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M3 17L12 21L21 17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-process-card__title">Produção e entrega</h3>
+          <p class="lf-process-card__text">
+            Com a aprovação, produzimos e entregamos a solução pronta para instalação e uso imediato.
+          </p>
+        </article>
+
+        <article class="lf-process-card">
+          <div class="lf-process-card__number">4</div>
+          <div class="lf-process-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3C7.58172 3 4 6.58172 4 11C4 15.4183 7.58172 19 12 19H19" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M16 15L20 19L16 23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M9 11L11 13L15 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-process-card__title">Suporte pós-entrega</h3>
+          <p class="lf-process-card__text">
+            Estamos disponíveis para ajustes, ampliações e reconfigurações conforme seu processo evolui.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="lf-section lf-section--light">
+    <div class="lf-container">
+      <div class="lf-section-head">
+        <h2 class="lf-title">Projetos que se adaptam ao seu desafio</h2>
+        <p class="lf-text">
+          Projetos que desenvolvemos para nossos clientes. Use como referência ou ponto de partida para o seu.
+        </p>
+      </div>
+
+      <div class="lf-cases-grid">
+
+        <article class="lf-case-card">
+          <div class="lf-case-card__image">
+            <img src="img/3.png" alt="Flow rack multinível para indústria alimentícia">
+          </div>
+          <div class="lf-case-card__content">
+            <h3 class="lf-case-card__title">Flow rack multinível para indústria alimentícia</h3>
+            <p class="lf-case-card__text">
+              Solução para abastecimento contínuo de linha com FIFO rigoroso e higienização facilitada.
+            </p>
+          </div>
+        </article>
+
+        <article class="lf-case-card">
+          <div class="lf-case-card__image">
+            <img src="img/2.png" alt="Conjunto bancada e carrinho para montagem automotiva">
+          </div>
+          <div class="lf-case-card__content">
+            <h3 class="lf-case-card__title">Conjunto bancada + carrinho para montagem automotiva</h3>
+            <p class="lf-case-card__text">
+              Integração de posto de trabalho ergonômico com carrinho de abastecimento específico para o ciclo da linha.
+            </p>
+          </div>
+        </article>
+
+        <article class="lf-case-card">
+          <div class="lf-case-card__image">
+            <img src="img/1.png" alt="Sistema de supermercado interno para logística">
+          </div>
+          <div class="lf-case-card__content">
+            <h3 class="lf-case-card__title">Sistema de supermercado interno para logística</h3>
+            <p class="lf-case-card__text">
+              Estrutura modular de flow racks e carrinhos padronizados para redução do tempo de abastecimento.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="lf-section lf-section--dark">
+    <div class="lf-container">
+      <div class="lf-final-cta">
+        <h2 class="lf-title">Seu próximo projeto começa aqui</h2>
+
+        <p class="lf-text">
+          Conta pra gente o desafio que você quer resolver. Nossa equipe entra em contato para entender melhor e propor uma solução.
+        </p>
+
+        <div class="lf-btn-group" style="justify-content:center;">
+          <a href="/contato" class="lf-btn lf-btn--primary" aria-label="Enviar briefing">
+            <span>Enviar briefing</span>
+          </a>
+
+          <a href="https://wa.me/5541995840097" class="lf-btn lf-btn--outline" aria-label="Falar pelo WhatsApp">
+            <span>Falar pelo WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

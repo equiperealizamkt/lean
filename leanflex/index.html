@@ -1,0 +1,1325 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   RESET GLOBAL
+   ========================================================= */
+html, body{
+  margin:0 !important;
+  padding:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+  background:#fff;
+  scroll-behavior:smooth;
+}
+
+/* =========================================================
+   LEANFLEX HOME
+   VERSÃO PREMIUM
+   TODOS OS href="" E src="" MANTIDOS VAZIOS
+   ========================================================= */
+
+.lf-page{
+  --lf-green:#56AA43;
+  --lf-green-hover:#429133;
+  --lf-green-soft:#EEF7EB;
+  --lf-dark:#4D525A;
+  --lf-dark-2:#3F444B;
+  --lf-gray:#7C8086;
+  --lf-gray-soft:#AEB3B8;
+  --lf-white:#FFFFFF;
+  --lf-bg:#F5F6F5;
+  --lf-bg-2:#EEF1EE;
+  --lf-line:rgba(77,82,90,0.08);
+  --lf-radius:8px;
+  --lf-radius-lg:18px;
+  --lf-radius-xl:26px;
+  --lf-shadow:0 10px 30px rgba(0,0,0,0.08);
+  --lf-shadow-soft:0 8px 22px rgba(0,0,0,0.05);
+  --lf-shadow-hover:0 22px 46px rgba(0,0,0,0.14);
+  --lf-container:1280px;
+
+  font-family:'Barlow', sans-serif;
+  color:#555;
+  background:var(--lf-white);
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  position:relative;
+}
+
+.lf-page *,
+.lf-page *::before,
+.lf-page *::after{
+  box-sizing:border-box !important;
+}
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+.lf-reveal{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.lf-reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-delay-1{ transition-delay:.08s; }
+.lf-delay-2{ transition-delay:.16s; }
+.lf-delay-3{ transition-delay:.24s; }
+.lf-delay-4{ transition-delay:.32s; }
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.lf-container{
+  width:100%;
+  max-width:var(--lf-container);
+  margin:0 auto;
+  padding:0 28px;
+  box-sizing:border-box;
+  position:relative;
+  z-index:2;
+}
+
+.lf-section{
+  position:relative;
+  overflow:hidden;
+  padding:92px 0;
+}
+
+.lf-section--light{
+  background:var(--lf-white);
+}
+
+.lf-section--alt{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.05), transparent 28%),
+    linear-gradient(180deg, #F7F8F7 0%, #F2F4F2 100%);
+}
+
+.lf-section--dark{
+  background:linear-gradient(180deg, #4D525A 0%, #434850 100%);
+  color:var(--lf-white);
+}
+
+.lf-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  padding:9px 16px;
+  border-radius:999px;
+  font-size:12px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--lf-green);
+  background:rgba(86,170,67,0.10);
+  border:1px solid rgba(86,170,67,0.16);
+  box-shadow:0 6px 18px rgba(86,170,67,0.08);
+}
+
+.lf-label::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--lf-green);
+  box-shadow:0 0 0 6px rgba(86,170,67,0.12);
+}
+
+.lf-section--dark .lf-label{
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.12);
+  box-shadow:none;
+}
+
+.lf-section--dark .lf-label::before{
+  background:#9BEA8A;
+  box-shadow:0 0 0 6px rgba(155,234,138,0.16);
+}
+
+.lf-title{
+  margin:0 0 16px;
+  font-size:clamp(28px, 3.1vw, 44px);
+  line-height:1.08;
+  font-weight:800;
+  color:var(--lf-dark);
+  letter-spacing:-0.02em;
+  position:relative;
+  padding-left:18px;
+}
+
+.lf-title::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:4px;
+  bottom:4px;
+  width:5px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--lf-green) 0%, #7FCF6D 100%);
+}
+
+.lf-section--dark .lf-title{
+  color:var(--lf-white);
+}
+
+.lf-section--dark .lf-title::before{
+  background:linear-gradient(180deg, #8DDF7A 0%, #56AA43 100%);
+}
+
+.lf-text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:400;
+  color:#5A5F66;
+}
+
+.lf-section--dark .lf-text{
+  color:rgba(255,255,255,0.88);
+}
+
+.lf-text + .lf-text{
+  margin-top:12px;
+}
+
+.lf-section-head{
+  max-width:900px;
+  margin-bottom:46px;
+}
+
+/* =========================================================
+   DECORAÇÕES
+   ========================================================= */
+
+.lf-deco-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0.45), transparent 85%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.lf-deco-grid--dark{
+  background-image:
+    linear-gradient(rgba(77,82,90,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,82,90,0.03) 1px, transparent 1px);
+}
+
+.lf-glow{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(20px);
+  opacity:.55;
+  z-index:0;
+}
+
+.lf-glow--one{
+  width:360px;
+  height:360px;
+  top:-140px;
+  right:-100px;
+  background:radial-gradient(circle, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0) 70%);
+}
+
+.lf-glow--two{
+  width:260px;
+  height:260px;
+  left:-60px;
+  bottom:-80px;
+  background:radial-gradient(circle, rgba(77,82,90,0.08) 0%, rgba(77,82,90,0) 72%);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.lf-btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+
+.lf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid transparent;
+  font-size:15px;
+  line-height:1.3;
+  font-weight:700;
+  text-align:center;
+  transition:transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease;
+  cursor:pointer;
+  width:auto;
+  max-width:100%;
+  min-height:54px;
+  box-sizing:border-box;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-btn::before{
+  content:"";
+  position:absolute;
+  inset:auto auto 0 0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+}
+
+.lf-btn:hover::before{
+  transform:translateX(100%);
+}
+
+.lf-btn svg,
+.lf-btn span{
+  position:relative;
+  z-index:1;
+}
+
+.lf-btn svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+.lf-btn--primary{
+  background:linear-gradient(180deg, var(--lf-green) 0%, #4B9A3B 100%);
+  color:var(--lf-white);
+  box-shadow:0 14px 28px rgba(86,170,67,0.20);
+}
+
+.lf-btn--primary:hover{
+  background:linear-gradient(180deg, #5EB94A 0%, var(--lf-green-hover) 100%);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(86,170,67,0.28);
+}
+
+.lf-btn--outline{
+  background:transparent;
+  border-color:var(--lf-dark);
+  color:var(--lf-dark);
+}
+
+.lf-btn--outline:hover{
+  background:var(--lf-dark);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+}
+
+.lf-section--dark .lf-btn--outline{
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.34);
+  color:#fff;
+  backdrop-filter:blur(8px);
+}
+
+.lf-section--dark .lf-btn--outline:hover{
+  background:#fff;
+  color:var(--lf-dark);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.lf-hero{
+  position:relative;
+  text-align:left;
+  padding:118px 0 110px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(77,82,90,0.95) 0%,
+      rgba(77,82,90,0.85) 40%,
+      rgba(77,82,90,0.60) 70%,
+      rgba(77,82,90,0.40) 100%
+    ),
+    url("img/Fábrica\ moderna\ e\ automatizada\ em\ funcionamento.png"); /* <-- COLOQUE SUA IMAGEM AQUI */
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.lf-hero__inner{
+  max-width:960px;
+  text-align: left;
+  position:relative;
+  z-index:2;
+}
+
+.lf-hero__title{
+  margin:0 0 20px;
+  color:var(--lf-white);
+  font-size:clamp(36px, 5vw, 62px);
+  line-height:1.02;
+  font-weight:800;
+  letter-spacing:-0.03em;
+  text-shadow:0 8px 30px rgba(0,0,0,0.20);
+}
+
+.lf-hero__text{
+  max-width:760px;
+  color:rgba(255,255,255,0.9);
+  font-size:18px;
+  line-height:1.8;
+}
+
+.lf-hero__actions{
+  justify-content:flex-start;
+}
+
+.lf-hero-highlights{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:14px;
+  margin-top:32px;
+}
+
+.lf-hero-highlight{
+  padding:18px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.10);
+}
+
+.lf-hero-highlight__number{
+  display:block;
+  margin-bottom:6px;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-0.02em;
+}
+
+.lf-hero-highlight__text{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.82);
+  font-weight:500;
+}
+
+/* =========================================================
+   PROPOSTA DE VALOR
+   ========================================================= */
+
+.lf-grid{
+  display:grid;
+  gap:24px;
+}
+
+.lf-grid--3{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.lf-grid--4{
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+}
+
+.lf-card{
+  position:relative;
+  background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,249,1) 100%);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:22px;
+  padding:30px 24px 26px;
+  box-shadow:var(--lf-shadow-soft);
+  height:100%;
+  transition:transform .30s ease, box-shadow .30s ease, border-color .30s ease;
+  overflow:hidden;
+}
+
+.lf-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg, var(--lf-green) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -40px -40px auto;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(86,170,67,0.08) 0%, rgba(86,170,67,0) 72%);
+  pointer-events:none;
+}
+
+.lf-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow-hover);
+  border-color:rgba(86,170,67,0.12);
+}
+
+.lf-card__icon{
+  width:58px;
+  height:58px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(86,170,67,0.14) 0%, rgba(86,170,67,0.08) 100%);
+  margin-bottom:18px;
+  transition:transform .28s ease, background .28s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.lf-card:hover .lf-card__icon{
+  background:linear-gradient(180deg, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0.10) 100%);
+  transform:scale(1.06) rotate(-2deg);
+}
+
+.lf-card__icon svg{
+  width:28px;
+  height:28px;
+  stroke:var(--lf-green);
+}
+
+.lf-card__title{
+  margin:0 0 12px;
+  font-size:20px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-card__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.75;
+  color:#555;
+}
+
+/* =========================================================
+   PRODUTOS
+   ========================================================= */
+
+.lf-product-card{
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,249,1) 100%);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--lf-shadow-soft);
+  height:100%;
+  transition:transform .30s ease, box-shadow .30s ease, border-color .30s ease;
+}
+
+.lf-product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow-hover);
+  border-color:rgba(86,170,67,0.12);
+}
+
+.lf-product-card__media{
+  width:100%;
+  aspect-ratio:4 / 3;
+  background:
+    linear-gradient(135deg, rgba(86,170,67,0.10), rgba(77,82,90,0.06)),
+    #EDEFEA;
+  overflow:hidden;
+  position:relative;
+}
+
+.lf-product-card__media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.00) 20%, rgba(0,0,0,0.12) 100%),
+    linear-gradient(135deg, rgba(255,255,255,0.16), rgba(86,170,67,0.10));
+  opacity:0;
+  transition:opacity .35s ease;
+  z-index:1;
+  pointer-events:none;
+}
+
+.lf-product-card__media::after{
+  
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:2;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.88);
+  color:var(--lf-dark);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+
+.lf-product-card:hover .lf-product-card__media::before{
+  opacity:1;
+}
+
+.lf-product-card:hover .lf-product-card__media::after{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-product-card__media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .45s ease;
+}
+
+.lf-product-card:hover .lf-product-card__media img{
+  transform:scale(1.05);
+}
+
+.lf-product-card__body{
+  display:flex;
+  flex-direction:column;
+  padding:22px 22px 24px;
+  flex:1;
+}
+
+.lf-product-card__title{
+  margin:0 0 10px;
+  font-size:20px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-product-card__text{
+  margin:0 0 18px;
+  font-size:16px;
+  line-height:1.75;
+  color:#555;
+  flex:1;
+}
+
+.lf-product-card__link{
+  color:var(--lf-green);
+  font-size:15px;
+  line-height:1.4;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:transform .2s ease, color .2s ease;
+}
+
+.lf-product-card__link:hover{
+  transform:translateX(3px);
+  color:var(--lf-green-hover);
+}
+
+.lf-product-card__link svg{
+  width:14px;
+  height:14px;
+  flex-shrink:0;
+}
+
+/* =========================================================
+   SEGMENTOS
+   ========================================================= */
+
+.lf-segment{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px 18px;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 100%);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:18px;
+  min-height:84px;
+  box-shadow:var(--lf-shadow-soft);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.lf-segment:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--lf-shadow);
+  border-color:rgba(86,170,67,0.10);
+}
+
+.lf-segment__icon{
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:linear-gradient(180deg, rgba(86,170,67,0.14) 0%, rgba(86,170,67,0.08) 100%);
+}
+
+.lf-segment__icon svg{
+  width:24px;
+  height:24px;
+  stroke:var(--lf-green);
+}
+
+.lf-segment__name{
+  margin:0;
+  font-size:18px;
+  line-height:1.35;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+/* =========================================================
+   ORIGEM E CREDIBILIDADE
+   ========================================================= */
+
+.lf-origin{
+  display:grid;
+  grid-template-columns:1fr 1.08fr;
+  align-items:center;
+  gap:36px;
+}
+
+.lf-origin__media{
+  position:relative;
+  width:100%;
+  min-height:420px;
+  background:
+    linear-gradient(135deg, rgba(86,170,67,0.10), rgba(77,82,90,0.06)),
+    #E7E9E6;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--lf-shadow);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.lf-origin__media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.00) 20%, rgba(0,0,0,0.12) 100%),
+    linear-gradient(135deg, rgba(255,255,255,0.16), rgba(86,170,67,0.10));
+  opacity:0;
+  transition:opacity .35s ease;
+  z-index:1;
+  pointer-events:none;
+}
+
+.lf-origin__media::after{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:2;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.88);
+  color:var(--lf-dark);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+
+.lf-origin__media:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--lf-shadow-hover);
+}
+
+.lf-origin__media:hover::before{
+  opacity:1;
+}
+
+.lf-origin__media:hover::after{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-origin__media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .45s ease;
+}
+
+.lf-origin__media:hover img{
+  transform:scale(1.04);
+}
+
+.lf-origin__content{
+  width:100%;
+}
+
+/* =========================================================
+   CTA FINAL
+   ========================================================= */
+
+.lf-final-cta{
+  text-align:center;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.lf-final-cta .lf-title{
+  display:inline-block;
+  text-align:left;
+  max-width:760px;
+}
+
+.lf-final-cta .lf-text{
+  max-width:760px;
+  margin:0 auto;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width:1024px){
+  .lf-section{
+    padding:76px 0;
+  }
+
+  .lf-container{
+    padding:0 22px;
+  }
+
+  .lf-grid--4{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .lf-grid--3{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .lf-origin{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .lf-origin__media{
+    min-height:360px;
+  }
+}
+
+@media (max-width:768px){
+  .lf-section{
+    padding:58px 0;
+  }
+
+  .lf-container{
+    padding:0 20px;
+  }
+
+  .lf-hero{
+    padding:86px 0 80px;
+  }
+
+  .lf-hero__text{
+    font-size:16px;
+  }
+
+  .lf-btn-group{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .lf-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .lf-grid--4,
+  .lf-grid--3{
+    grid-template-columns:1fr;
+  }
+
+  .lf-card,
+  .lf-product-card__body{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .lf-hero-highlights{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:480px){
+  .lf-section{
+    padding:48px 0;
+  }
+
+  .lf-container{
+    padding:0 16px;
+  }
+
+  .lf-hero{
+    padding:72px 0 66px;
+  }
+
+  .lf-hero__title{
+    font-size:clamp(28px, 9vw, 42px);
+  }
+
+  .lf-title{
+    padding-left:14px;
+    font-size:clamp(24px, 7vw, 34px);
+  }
+
+  .lf-grid--4,
+  .lf-grid--3{
+    grid-template-columns:1fr;
+  }
+
+  .lf-card{
+    padding:24px 18px 22px;
+  }
+
+  .lf-product-card__body{
+    padding:20px 18px 22px;
+  }
+
+  .lf-segment{
+    padding:18px 16px;
+  }
+
+  .lf-text,
+  .lf-card__text,
+  .lf-product-card__text{
+    font-size:15px;
+  }
+}
+</style>
+
+<div class="lf-page">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="lf-section lf-section--dark lf-hero">
+    <div class="lf-deco-grid"></div>
+
+    <div class="lf-container">
+      <div class="lf-hero__inner lf-reveal">
+
+        <h1 class="lf-hero__title">Seu processo evolui. Sua estrutura também pode evoluir.</h1>
+
+        <p class="lf-hero__text">
+          A Leanflex oferece estruturas modulares que se adaptam ao ritmo da sua operação, com praticidade,
+          durabilidade e mentalidade Lean em cada projeto.
+        </p>
+
+        <div class="lf-btn-group lf-hero__actions">
+          <a href="" class="lf-btn lf-btn--primary" data-lf-link="" aria-label="Conheça as soluções">
+            <span>Conheça as soluções</span>
+          </a>
+
+          <a href="" class="lf-btn lf-btn--outline" data-lf-link="" aria-label="Falar pelo WhatsApp">
+            <span>Falar pelo WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="lf-hero-highlights">
+          <div class="lf-hero-highlight lf-reveal lf-delay-1">
+            <span class="lf-hero-highlight__number">Industrial</span>
+            <span class="lf-hero-highlight__text">Robustez para a rotina real do chão de fábrica</span>
+          </div>
+
+          <div class="lf-hero-highlight lf-reveal lf-delay-2">
+            <span class="lf-hero-highlight__number">Modular</span>
+            <span class="lf-hero-highlight__text">Estruturas flexíveis para mudanças de layout</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PROPOSTA DE VALOR
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-glow lf-glow--one"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-head lf-reveal">
+        <h2 class="lf-title">Estrutura modular que resolve problemas reais do chão de fábrica</h2>
+        <p class="lf-text">
+          Desenvolvida a partir da experiência da Isoflex, a Leanflex une know-how industrial e cultura Lean
+          para criar soluções que vão além do mobiliário são ferramentas de gestão visual, organização e melhoria contínua.
+        </p>
+      </div>
+
+      <div class="lf-grid lf-grid--3">
+        <article class="lf-card lf-reveal lf-delay-1">
+          <div class="lf-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7H20M4 12H14M4 17H12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M17 14L20 17L17 20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-card__title">Organização e padronização</h3>
+          <p class="lf-card__text">
+            Estruturas que facilitam a gestão visual e o fluxo de trabalho, reduzindo desperdícios,
+            retrabalhos e movimentações desnecessárias na operação.
+          </p>
+        </article>
+
+        <article class="lf-card lf-reveal lf-delay-2">
+          <div class="lf-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8 4L4 8L8 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M16 12L20 16L16 20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M20 8H4M4 16H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-card__title">Flexibilidade real</h3>
+          <p class="lf-card__text">
+            Modulares e reconfiguráveis, as soluções acompanham mudanças de layout, processo
+            ou abastecimento sem exigir troca completa da estrutura.
+          </p>
+        </article>
+
+        <article class="lf-card lf-reveal lf-delay-3">
+          <div class="lf-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3L19 7V12C19 16.4183 16.134 20.4183 12 21C7.866 20.4183 5 16.4183 5 12V7L12 3Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M9 12L11 14L15 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-card__title">Cultura Lean aplicada</h3>
+          <p class="lf-card__text">
+            Cada produto é pensado para sustentar a implementação e a continuidade da cultura Lean
+            no dia a dia, com mais clareza, ergonomia e eficiência.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PRODUTOS EM DESTAQUE
+       ===================================================== -->
+  <section class="lf-section lf-section--alt">
+    <div class="lf-deco-grid lf-deco-grid--dark"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-head lf-reveal">
+        <h2 class="lf-title">Soluções modulares para cada necessidade</h2>
+        <p class="lf-text">
+          Da bancada ao flow rack, nossos produtos são projetados para se encaixar na sua operação
+          e crescer com ela, com foco em organização, ergonomia e produtividade.
+        </p>
+      </div>
+
+      <div class="lf-grid lf-grid--4">
+
+        <article class="lf-product-card lf-reveal lf-delay-1">
+          <div class="lf-product-card__media">
+            <img src="img/Bancada de Trabalho Modular.png" alt="Bancada de trabalho modular Leanflex">
+          </div>
+          <div class="lf-product-card__body">
+            <h3 class="lf-product-card__title">Bancada de Trabalho Modular</h3>
+            <p class="lf-product-card__text">
+              Configurável para cada posto de trabalho, suportando diferentes processos,
+              ferramentas e demandas ergonômicas sem troca de estrutura.
+            </p>
+            <a href="" class="lf-product-card__link" data-lf-link="" aria-label="Ver bancadas">
+              <span>Ver bancadas</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="lf-product-card lf-reveal lf-delay-2">
+          <div class="lf-product-card__media">
+            <img src="img/Flow rack.png" alt="Flow rack Leanflex">
+          </div>
+          <div class="lf-product-card__body">
+            <h3 class="lf-product-card__title">Flow Rack</h3>
+            <p class="lf-product-card__text">
+              Abastecimento por gravidade que organiza o fluxo de materiais,
+              reduz o tempo de picking e elimina deslocamentos desnecessários.
+            </p>
+            <a href="" class="lf-product-card__link" data-lf-link="" aria-label="Ver flow racks">
+              <span>Ver flow racks</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="lf-product-card lf-reveal lf-delay-3">
+          <div class="lf-product-card__media">
+            <img src="img/Carrinho de movimentação.png" alt="Carrinho de movimentação Leanflex">
+          </div>
+          <div class="lf-product-card__body">
+            <h3 class="lf-product-card__title">Carrinho de Movimentação</h3>
+            <p class="lf-product-card__text">
+              Projetado para facilitar o transporte interno de materiais com ergonomia,
+              segurança e organização em cada etapa do processo.
+            </p>
+            <a href="" class="lf-product-card__link" data-lf-link="" aria-label="Ver carrinhos">
+              <span>Ver carrinhos</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="lf-product-card lf-reveal lf-delay-4">
+          <div class="lf-product-card__media">
+            <img src="img/Projetos Personalizados.png" alt="Projetos personalizados Leanflex">
+          </div>
+          <div class="lf-product-card__body">
+            <h3 class="lf-product-card__title">Projetos Personalizados</h3>
+            <p class="lf-product-card__text">
+              Soluções sob medida para as particularidades da sua operação.
+              Ideal para quem precisa adaptar estrutura, fluxo e layout com precisão.
+            </p>
+            <a href="" class="lf-product-card__link" data-lf-link="" aria-label="Ver projetos">
+              <span>Ver projetos</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SEGMENTOS ATENDIDOS
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-container">
+      <div class="lf-section-head lf-reveal">
+        <h2 class="lf-title">Presente nos principais segmentos industriais do Brasil</h2>
+        <p class="lf-text">
+          Nossas estruturas atendem desde indústrias de grande porte até oficinas e centros de distribuição,
+          sempre com foco em padronização, produtividade e flexibilidade operacional.
+        </p>
+      </div>
+
+      <div class="lf-grid lf-grid--3">
+
+        <div class="lf-segment lf-reveal lf-delay-1">
+          <div class="lf-segment__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 16L12 5L21 16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M7 16V20H17V16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-segment__name">Indústria automotiva</p>
+        </div>
+
+        <div class="lf-segment lf-reveal lf-delay-2">
+          <div class="lf-segment__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 19H20M7 19V10M12 19V5M17 19V12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-segment__name">Indústria metalúrgica e metal/mecânica</p>
+        </div>
+
+        <div class="lf-segment lf-reveal lf-delay-3">
+          <div class="lf-segment__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3C9 6.5 7 8.9 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 8.9 15 6.5 12 3Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M8 20H16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-segment__name">Indústria alimentícia</p>
+        </div>
+
+        <div class="lf-segment lf-reveal lf-delay-1">
+          <div class="lf-segment__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 7H17V17H7V7Z" stroke-width="2"></path>
+              <path d="M4 12H7M17 12H20M12 4V7M12 17V20" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <p class="lf-segment__name">Indústria plástica</p>
+        </div>
+
+        <div class="lf-segment lf-reveal lf-delay-2">
+          <div class="lf-segment__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7H15L18 10V17H6C4.89543 17 4 16.1046 4 15V7Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M7 20C7.55228 20 8 19.5523 8 19C8 18.4477 7.55228 18 7 18C6.44772 18 6 18.4477 6 19C6 19.5523 6.44772 20 7 20Z" stroke-width="2"></path>
+              <path d="M17 20C17.5523 20 18 19.5523 18 19C18 18.4477 17.5523 18 17 18C16.4477 18 16 18.4477 16 19C16 19.5523 16.4477 20 17 20Z" stroke-width="2"></path>
+            </svg>
+          </div>
+          <p class="lf-segment__name">Logística e centros de distribuição</p>
+        </div>
+
+        <div class="lf-segment lf-reveal lf-delay-3">
+          <div class="lf-segment__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M14 6L18 10L10 18L6 18L6 14L14 6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M13 7L17 11" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <p class="lf-segment__name">Oficinas em implementação Lean</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       ORIGEM E CREDIBILIDADE
+       ===================================================== -->
+  <section class="lf-section lf-section--alt">
+    <div class="lf-glow lf-glow--two"></div>
+
+    <div class="lf-container">
+      <div class="lf-origin">
+        <div class="lf-origin__media lf-reveal">
+          <img src="img/Ambiente industrial organizado e moderno.png" alt="Equipe e ambiente produtivo Leanflex">
+        </div>
+
+        <div class="lf-origin__content lf-reveal lf-delay-1">
+          <h2 class="lf-title">Nascida da experiência de quem conhece o chão de fábrica</h2>
+          <p class="lf-text">
+            A Leanflex surgiu da bagagem e do know-how da Isoflex, com o propósito de ir além:
+            oferecer não só estrutura, mas uma parceria real para empresas que querem implementar
+            e sustentar a cultura Lean com mais consistência.
+          </p>
+          <p class="lf-text">
+            Mais do que fornecer produtos, nossa proposta é apoiar operações que buscam
+            evolução contínua, melhor aproveitamento do espaço e mais clareza no fluxo de trabalho.
+          </p>
+
+          <div class="lf-btn-group">
+            <a href="" class="lf-btn lf-btn--primary" data-lf-link="" aria-label="Conheça nossa história">
+              <span>Conheça nossa história</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA FINAL
+       ===================================================== -->
+  <section class="lf-section lf-section--dark">
+    <div class="lf-container">
+      <div class="lf-final-cta lf-reveal">
+        <h2 class="lf-title">Pronto para organizar e evoluir sua operação?</h2>
+        <p class="lf-text">
+          Fale com um especialista da Leanflex e descubra qual solução modular
+          se encaixa melhor no seu processo.
+        </p>
+
+        <div class="lf-btn-group" style="justify-content:center;">
+          <a href="" class="lf-btn lf-btn--primary" data-lf-link="" aria-label="Falar pelo WhatsApp">
+            <span>Falar pelo WhatsApp</span>
+          </a>
+
+          <a href="" class="lf-btn lf-btn--outline" data-lf-link="" aria-label="Enviar mensagem">
+            <span>Enviar mensagem</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* =========================================================
+   NAVEGAÇÃO OPCIONAL
+   Mantém href="" conforme briefing, mas permite teste funcional
+   ========================================================= */
+document.addEventListener('click', function(e){
+  var link = e.target.closest('[data-lf-link]');
+  if(!link) return;
+
+  var target = link.getAttribute('data-lf-link');
+  if(target){
+    e.preventDefault();
+    window.location.href = target;
+  }
+});
+
+/* =========================================================
+   ANIMAÇÃO SUAVE NO SCROLL
+   ========================================================= */
+(function(){
+  var items = document.querySelectorAll('.lf-reveal');
+
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(item){
+      item.classList.add('is-visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold:0.14
+  });
+
+  items.forEach(function(item){
+    observer.observe(item);
+  });
+})();
+</script>

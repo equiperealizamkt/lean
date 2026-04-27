@@ -1,0 +1,1581 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   RESET GLOBAL
+   ========================================================= */
+html, body{
+  margin:0 !important;
+  padding:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+  background:#fff;
+  scroll-behavior:smooth;
+}
+
+/* =========================================================
+   LEANFLEX | PRODUTO - FLOW RACK
+   VERSÃO PREMIUM
+   TODOS OS href="" E src="" MANTIDOS VAZIOS
+   ========================================================= */
+
+.lf-page{
+  --lf-green:#56AA43;
+  --lf-green-hover:#429133;
+  --lf-green-soft:#EEF7EB;
+  --lf-dark:#4D525A;
+  --lf-dark-2:#3F444B;
+  --lf-gray:#7C8086;
+  --lf-white:#FFFFFF;
+  --lf-bg:#F5F6F5;
+  --lf-bg-2:#EEF1EE;
+  --lf-line:rgba(77,82,90,0.08);
+  --lf-radius:8px;
+  --lf-radius-lg:18px;
+  --lf-radius-xl:26px;
+  --lf-shadow:0 10px 30px rgba(0,0,0,0.08);
+  --lf-shadow-soft:0 8px 22px rgba(0,0,0,0.05);
+  --lf-shadow-hover:0 22px 46px rgba(0,0,0,0.14);
+  --lf-container:1280px;
+
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  background:var(--lf-white);
+  font-family:'Barlow', sans-serif;
+  color:#555;
+  position:relative;
+}
+
+.lf-page *,
+.lf-page *::before,
+.lf-page *::after{
+  box-sizing:border-box !important;
+}
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+.lf-reveal{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.lf-reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-delay-1{ transition-delay:.08s; }
+.lf-delay-2{ transition-delay:.16s; }
+.lf-delay-3{ transition-delay:.24s; }
+.lf-delay-4{ transition-delay:.32s; }
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.lf-container{
+  width:100%;
+  max-width:var(--lf-container);
+  margin:0 auto;
+  padding:0 28px;
+  box-sizing:border-box;
+  position:relative;
+  z-index:2;
+}
+
+.lf-section{
+  position:relative;
+  overflow:hidden;
+  padding:92px 0;
+}
+
+.lf-section--light{
+  background:var(--lf-white);
+}
+
+.lf-section--alt{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.05), transparent 28%),
+    linear-gradient(180deg, #F7F8F7 0%, #F2F4F2 100%);
+}
+
+.lf-section--dark{
+  background:linear-gradient(180deg, #4D525A 0%, #434850 100%);
+  color:var(--lf-white);
+}
+
+.lf-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  padding:9px 16px;
+  border-radius:999px;
+  font-size:12px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--lf-green);
+  background:rgba(86,170,67,0.10);
+  border:1px solid rgba(86,170,67,0.16);
+  box-shadow:0 6px 18px rgba(86,170,67,0.08);
+}
+
+.lf-label::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--lf-green);
+  box-shadow:0 0 0 6px rgba(86,170,67,0.12);
+}
+
+.lf-title{
+  margin:0 0 16px;
+  font-size:clamp(28px, 3.1vw, 44px);
+  line-height:1.08;
+  font-weight:800;
+  color:var(--lf-dark);
+  letter-spacing:-0.02em;
+  position:relative;
+  padding-left:18px;
+}
+
+.lf-title::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:4px;
+  bottom:4px;
+  width:5px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--lf-green) 0%, #7FCF6D 100%);
+}
+
+.lf-section--dark .lf-title{
+  color:var(--lf-white);
+}
+
+.lf-section--dark .lf-title::before{
+  background:linear-gradient(180deg, #8DDF7A 0%, #56AA43 100%);
+}
+
+.lf-text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:400;
+  color:#5A5F66;
+}
+
+.lf-section--dark .lf-text{
+  color:rgba(255,255,255,0.88);
+}
+
+.lf-text + .lf-text{
+  margin-top:12px;
+}
+
+.lf-section-head{
+  max-width:900px;
+  margin-bottom:46px;
+}
+
+/* =========================================================
+   DECORAÇÕES
+   ========================================================= */
+
+.lf-deco-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0.45), transparent 85%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.lf-deco-grid--dark{
+  background-image:
+    linear-gradient(rgba(77,82,90,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,82,90,0.03) 1px, transparent 1px);
+}
+
+.lf-glow{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(20px);
+  opacity:.55;
+  z-index:0;
+}
+
+.lf-glow--one{
+  width:360px;
+  height:360px;
+  top:-120px;
+  right:-100px;
+  background:radial-gradient(circle, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0) 70%);
+}
+
+.lf-glow--two{
+  width:260px;
+  height:260px;
+  left:-60px;
+  bottom:-80px;
+  background:radial-gradient(circle, rgba(77,82,90,0.08) 0%, rgba(77,82,90,0) 72%);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.lf-btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+
+.lf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid transparent;
+  font-size:15px;
+  line-height:1.3;
+  font-weight:700;
+  text-align:center;
+  transition:transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease;
+  cursor:pointer;
+  width:auto;
+  max-width:100%;
+  min-height:54px;
+  box-sizing:border-box;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-btn::before{
+  content:"";
+  position:absolute;
+  inset:auto auto 0 0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+}
+
+.lf-btn:hover::before{
+  transform:translateX(100%);
+}
+
+.lf-btn svg,
+.lf-btn span{
+  position:relative;
+  z-index:1;
+}
+
+.lf-btn svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+.lf-btn--primary{
+  background:linear-gradient(180deg, var(--lf-green) 0%, #4B9A3B 100%);
+  color:var(--lf-white);
+  box-shadow:0 14px 28px rgba(86,170,67,0.20);
+}
+
+.lf-btn--primary:hover{
+  background:linear-gradient(180deg, #5EB94A 0%, var(--lf-green-hover) 100%);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(86,170,67,0.28);
+}
+
+.lf-btn--outline{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.34);
+  color:#fff;
+  backdrop-filter:blur(8px);
+}
+
+.lf-btn--outline:hover{
+  background:#fff;
+  color:var(--lf-dark);
+  transform:translateY(-3px);
+}
+
+.lf-section--dark .lf-btn--outline{
+  border-color:rgba(255,255,255,0.34);
+  color:#fff;
+}
+
+.lf-section--dark .lf-btn--outline:hover{
+  background:#fff;
+  color:var(--lf-dark);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.lf-hero{
+  position:relative;
+  min-height:740px;
+  display:flex;
+  align-items:center;
+  padding:140px 0;
+  background:
+    linear-gradient(100deg, rgba(44,48,54,0.94) 0%, rgba(53,58,64,0.88) 34%, rgba(64,69,76,0.64) 58%, rgba(77,82,90,0.32) 76%, rgba(77,82,90,0.16) 100%),
+    radial-gradient(circle at 82% 20%, rgba(86,170,67,0.20) 0%, rgba(86,170,67,0) 22%),
+    radial-gradient(circle at 18% 88%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 20%),
+    url("img/Imagem\ hero\ flowrack.png") center center / cover no-repeat;
+}
+
+.lf-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 35%),
+    rgba(0,0,0,0.16);
+  z-index:0;
+}
+
+.lf-hero .lf-container{
+  position:relative;
+  z-index:1;
+}
+
+.lf-hero__grid{
+  display:block;
+}
+
+.lf-hero__content{
+  max-width:760px;
+}
+
+.lf-hero .lf-label{
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.12);
+  box-shadow:none;
+}
+
+.lf-hero .lf-label::before{
+  background:#9BEA8A;
+  box-shadow:0 0 0 6px rgba(155,234,138,0.16);
+}
+
+.lf-hero__title{
+  margin:0 0 18px;
+  font-size:clamp(34px, 5vw, 64px);
+  line-height:.98;
+  font-weight:800;
+  color:#FFFFFF;
+  letter-spacing:-0.03em;
+  text-shadow:0 8px 30px rgba(0,0,0,0.22);
+}
+
+.lf-hero__text{
+  margin:0;
+  font-size:18px;
+  line-height:1.75;
+  color:rgba(255,255,255,0.92);
+  max-width:700px;
+}
+
+.lf-hero-highlights{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:14px;
+  margin-top:32px;
+  max-width:520px;
+}
+
+.lf-hero-highlight{
+  padding:18px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.10);
+}
+
+.lf-hero-highlight__number{
+  display:block;
+  margin-bottom:6px;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-0.02em;
+}
+
+.lf-hero-highlight__text{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.82);
+  font-weight:500;
+}
+
+/* =========================================================
+   GRIDS E CARDS
+   ========================================================= */
+
+.lf-grid{
+  display:grid;
+  gap:24px;
+}
+
+.lf-grid--2{
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+}
+
+.lf-grid--3{
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+}
+
+.lf-grid--4{
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+}
+
+.lf-card{
+  position:relative;
+  background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,249,1) 100%);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:22px;
+  padding:30px 24px 26px;
+  box-shadow:var(--lf-shadow-soft);
+  height:100%;
+  transition:transform .30s ease, box-shadow .30s ease, border-color .30s ease;
+  overflow:hidden;
+}
+
+.lf-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg, var(--lf-green) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -40px -40px auto;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(86,170,67,0.08) 0%, rgba(86,170,67,0) 72%);
+  pointer-events:none;
+}
+
+.lf-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow-hover);
+  border-color:rgba(86,170,67,0.14);
+}
+
+.lf-card__icon{
+  width:58px;
+  height:58px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(86,170,67,0.14) 0%, rgba(86,170,67,0.08) 100%);
+  margin-bottom:18px;
+  transition:transform .28s ease, background .28s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.lf-card:hover .lf-card__icon{
+  background:linear-gradient(180deg, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0.10) 100%);
+  transform:scale(1.06) rotate(-2deg);
+}
+
+.lf-card__icon svg{
+  width:28px;
+  height:28px;
+  stroke:var(--lf-green);
+}
+
+.lf-card__title{
+  margin:0 0 12px;
+  font-size:20px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-card__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.75;
+  color:#555;
+}
+
+/* =========================================================
+   LISTAS DE CONFIGURAÇÕES E APLICAÇÕES
+   ========================================================= */
+
+.lf-list-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:16px 20px;
+  margin-top:28px;
+}
+
+.lf-list-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:18px 18px;
+  background:rgba(255,255,255,0.92);
+  border:1px solid rgba(0,0,0,0.06);
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.lf-list-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.08);
+  border-color:rgba(86,170,67,0.18);
+}
+
+.lf-list-item__bullet{
+  width:10px;
+  height:10px;
+  min-width:10px;
+  border-radius:50%;
+  background:var(--lf-green);
+  margin-top:8px;
+  box-shadow:0 0 0 6px rgba(86,170,67,0.10);
+}
+
+.lf-list-item__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.6;
+  color:#555;
+}
+
+.lf-compact-list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:16px 20px;
+  margin-top:28px;
+}
+
+.lf-compact-list__item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 18px;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 100%);
+  border:1px solid rgba(77,82,90,0.08);
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.lf-compact-list__item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.08);
+  border-color:rgba(86,170,67,0.18);
+}
+
+.lf-compact-list__icon{
+  width:24px;
+  height:24px;
+  min-width:24px;
+  margin-top:2px;
+}
+
+.lf-compact-list__icon svg{
+  width:24px;
+  height:24px;
+  stroke:var(--lf-green);
+}
+
+.lf-compact-list__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.6;
+  color:#555;
+}
+
+/* =========================================================
+   BLOCO DE APOIO - CONFIGURAÇÕES VISUAIS
+   ========================================================= */
+
+.lf-config-wrap{
+  display:grid;
+  grid-template-columns:minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap:34px;
+  align-items:stretch;
+}
+
+.lf-config-content{
+  background:rgba(255,255,255,0.60);
+  border:1px solid rgba(77,82,90,0.08);
+  border-radius:28px;
+  padding:34px 30px;
+  box-shadow:var(--lf-shadow-soft);
+  backdrop-filter:blur(6px);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+
+.lf-config-gallery{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+}
+
+.lf-config-carousel{
+  position:relative;
+  width:100%;
+  max-width:565px;
+  height:665px;
+  min-height:665px;
+  margin:0 auto;
+  background:#fff !important;
+  border:none !important;
+  outline:none !important;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--lf-shadow);
+  display:block;
+  flex:none;
+}
+
+.lf-config-carousel__viewport{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  border:none !important;
+  outline:none !important;
+  background:#fff !important;
+  border-radius:28px;
+}
+
+.lf-config-carousel__track{
+  display:flex;
+  width:100%;
+  height:100%;
+  transition:transform .45s ease;
+  will-change:transform;
+}
+
+.lf-config-slide{
+  min-width:100%;
+  width:100%;
+  height:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  margin:0;
+  background:#fff !important;
+  border:none !important;
+  outline:none !important;
+  overflow:hidden;
+}
+
+.lf-config-slide::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.00) 48%, rgba(0,0,0,0.14) 100%);
+  z-index:1;
+  pointer-events:none;
+}
+
+.lf-config-slide img{
+  position:relative;
+  z-index:0;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  min-height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:none !important;
+  outline:none !important;
+  box-shadow:none !important;
+  background:#fff !important;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .45s ease;
+}
+
+.lf-config-carousel:hover .lf-config-slide img{
+  transform:scale(1.015);
+}
+
+.lf-config-slide__label{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  z-index:2;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.92);
+  color:var(--lf-dark);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  box-shadow:0 8px 18px rgba(0,0,0,0.10);
+}
+
+.lf-config-carousel__nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.92);
+  color:var(--lf-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:3;
+  box-shadow:0 12px 24px rgba(0,0,0,0.12);
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  padding:0;
+}
+
+.lf-config-carousel__nav:hover{
+  transform:translateY(-50%) scale(1.06);
+  background:#fff;
+  box-shadow:0 16px 28px rgba(0,0,0,0.16);
+}
+
+.lf-config-carousel__nav:focus-visible{
+  outline:2px solid var(--lf-green);
+  outline-offset:3px;
+}
+
+.lf-config-carousel__nav svg{
+  width:18px;
+  height:18px;
+  stroke:currentColor;
+}
+
+.lf-config-carousel__nav--prev{
+  left:16px;
+}
+
+.lf-config-carousel__nav--next{
+  right:16px;
+}
+
+.lf-config-carousel__dots{
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  z-index:3;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.lf-config-carousel__dot{
+  width:11px;
+  height:11px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.72);
+  box-shadow:0 0 0 1px rgba(77,82,90,0.12);
+  cursor:pointer;
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+  padding:0;
+}
+
+.lf-config-carousel__dot:hover{
+  transform:scale(1.1);
+}
+
+.lf-config-carousel__dot.is-active{
+  background:var(--lf-green);
+  box-shadow:0 0 0 6px rgba(86,170,67,0.16);
+}
+
+.lf-config-carousel__counter{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:3;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(77,82,90,0.72);
+  color:#fff;
+  font-size:12px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:0.06em;
+  backdrop-filter:blur(6px);
+}
+
+@media (max-width:1024px){
+  .lf-config-wrap{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .lf-config-content{
+    height:auto;
+  }
+
+  .lf-config-gallery{
+    height:auto;
+  }
+
+  .lf-config-carousel{
+    width:565px;
+    max-width:100%;
+    height:665px;
+    min-height:665px;
+  }
+}
+
+@media (max-width:768px){
+  .lf-config-carousel{
+    width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:565 / 665;
+    max-height:665px;
+  }
+
+  .lf-config-slide img{
+    width:100% !important;
+    height:100% !important;
+    min-width:100% !important;
+    min-height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .lf-config-carousel__nav{
+    width:40px;
+    height:40px;
+  }
+
+  .lf-config-carousel__nav--prev{
+    left:12px;
+  }
+
+  .lf-config-carousel__nav--next{
+    right:12px;
+  }
+
+  .lf-config-slide__label{
+    left:14px;
+    bottom:14px;
+    font-size:11px;
+  }
+
+  .lf-config-carousel__counter{
+    top:14px;
+    right:14px;
+  }
+}
+
+@media (max-width:480px){
+  .lf-config-carousel__dots{
+    bottom:14px;
+    gap:8px;
+  }
+
+  .lf-config-carousel__dot{
+    width:10px;
+    height:10px;
+  }
+}
+
+/* =========================================================
+   CTA FINAL + RELACIONADOS
+   ========================================================= */
+
+.lf-cta-box{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0) 28%),
+    linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:28px;
+  padding:34px 30px;
+  box-shadow:none;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-cta-box::before{
+  content:"";
+  position:absolute;
+  right:-60px;
+  bottom:-60px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 72%);
+  pointer-events:none;
+}
+
+.lf-related{
+  margin-top:34px;
+  padding-top:26px;
+  border-top:1px solid rgba(255,255,255,0.14);
+}
+
+.lf-related__title{
+  margin:0 0 18px;
+  font-size:22px;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--lf-white);
+}
+
+.lf-related__links{
+  display:grid;
+  gap:12px;
+}
+
+.lf-related__link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.04);
+  color:var(--lf-white);
+  text-decoration:none;
+  font-size:16px;
+  line-height:1.5;
+  font-weight:700;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:transform .25s ease, color .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.lf-related__link svg{
+  width:14px;
+  height:14px;
+  flex-shrink:0;
+}
+
+.lf-related__link:hover{
+  color:#fff;
+  background:rgba(86,170,67,0.14);
+  border-color:rgba(86,170,67,0.18);
+  transform:translateX(4px);
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width:1024px){
+  .lf-section{
+    padding:76px 0;
+  }
+
+  .lf-container{
+    padding:0 22px;
+  }
+
+  .lf-grid--4{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .lf-config-wrap{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .lf-hero{
+    min-height:auto;
+    padding:120px 0 90px;
+    background:
+      linear-gradient(90deg, rgba(77,82,90,0.86) 0%, rgba(77,82,90,0.70) 55%, rgba(77,82,90,0.36) 100%),
+      url("") center center / cover no-repeat;
+  }
+
+  .lf-config-content{
+    height:auto;
+  }
+
+  .lf-config-gallery{
+    height:auto;
+  }
+
+  .lf-config-carousel{
+    height:665px;
+    min-height:665px;
+  }
+
+}
+
+@media (max-width:768px){
+  .lf-section{
+    padding:58px 0;
+  }
+
+  .lf-container{
+    padding:0 20px;
+  }
+
+  .lf-hero{
+    padding:104px 0 72px;
+    background:
+      linear-gradient(180deg, rgba(77,82,90,0.88) 0%, rgba(77,82,90,0.70) 50%, rgba(77,82,90,0.42) 100%),
+      url("") center center / cover no-repeat;
+  }
+
+  .lf-hero__text{
+    font-size:16px;
+  }
+
+  .lf-btn-group{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .lf-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .lf-grid--3,
+  .lf-grid--2,
+  .lf-list-grid,
+  .lf-compact-list{
+    grid-template-columns:1fr;
+  }
+
+  .lf-card,
+  .lf-cta-box,
+  .lf-config-content{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .lf-hero-highlights{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:480px){
+  .lf-section{
+    padding:48px 0;
+  }
+
+  .lf-container{
+    padding:0 16px;
+  }
+
+  .lf-hero{
+    padding:96px 0 64px;
+  }
+
+  .lf-hero__title{
+    font-size:clamp(28px, 9vw, 42px);
+  }
+
+  .lf-title{
+    padding-left:14px;
+    font-size:clamp(24px, 7vw, 34px);
+  }
+
+  .lf-grid--3,
+  .lf-grid--2,
+  .lf-list-grid,
+  .lf-compact-list{
+    grid-template-columns:1fr;
+  }
+
+  .lf-card{
+    padding:24px 18px 22px;
+  }
+
+  .lf-cta-box,
+  .lf-config-content{
+    padding:24px 18px;
+  }
+
+  .lf-text,
+  .lf-card__text,
+  .lf-list-item__text,
+  .lf-compact-list__text{
+    font-size:15px;
+  }
+}
+</style>
+
+<div class="lf-page">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="lf-section lf-hero">
+    <div class="lf-deco-grid"></div>
+
+    <div class="lf-container">
+      <div class="lf-hero__grid">
+        <div class="lf-hero__content lf-reveal">
+
+          <h1 class="lf-hero__title">Flow Rack Modular</h1>
+
+          <p class="lf-hero__text">
+            Sistema de abastecimento por gravidade que organiza o fluxo de materiais,
+            aproxima os componentes do ponto de uso e elimina movimentações desnecessárias
+            no processo produtivo.
+          </p>
+
+          <div class="lf-btn-group">
+            <a href="" class="lf-btn lf-btn--primary" data-lf-link="" aria-label="Solicitar orçamento">
+              <span>Solicitar orçamento</span>
+            </a>
+
+            <a href="" class="lf-btn lf-btn--outline" data-lf-link="" aria-label="Falar pelo WhatsApp">
+              <span>Falar pelo WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="lf-hero-highlights">
+            <div class="lf-hero-highlight lf-reveal lf-delay-1">
+              <span class="lf-hero-highlight__number">FIFO</span>
+              <span class="lf-hero-highlight__text">Fluxo contínuo com reposição organizada</span>
+            </div>
+
+            <div class="lf-hero-highlight lf-reveal lf-delay-2">
+              <span class="lf-hero-highlight__number">Lean</span>
+              <span class="lf-hero-highlight__text">Menos deslocamento e mais eficiência operacional</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       COMO FUNCIONA
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-glow lf-glow--one"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-head lf-reveal">
+        <h2 class="lf-title">Como o flow rack transforma o abastecimento</h2>
+        <p class="lf-text">
+          O flow rack funciona pelo princípio FIFO (First In, First Out): os materiais entram por um lado
+          e deslizam por gravidade até o ponto de consumo. O resultado é um fluxo contínuo, sem acúmulo,
+          sem ruptura e sem desperdício de tempo em buscas.
+        </p>
+      </div>
+
+      <div class="lf-grid lf-grid--3">
+        <article class="lf-card lf-reveal lf-delay-1">
+          <div class="lf-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 8H14M10 16H20" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M11 5L14 8L11 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M13 13L10 16L13 19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-card__title">Abastecimento e consumo separados</h3>
+          <p class="lf-card__text">
+            O operador que abastece e o que consome não se cruzam, eliminando interferências
+            na rotina e reduzindo o risco de parada de linha.
+          </p>
+        </article>
+
+        <article class="lf-card lf-reveal lf-delay-2">
+          <div class="lf-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 18V10M12 18V6M19 18V13" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M3 18H21" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3 class="lf-card__title">Estoque visível e controlado</h3>
+          <p class="lf-card__text">
+            Com o flow rack, o nível de estoque fica visível a qualquer momento,
+            facilitando o Kanban e evitando tanto falta quanto excesso de material.
+          </p>
+        </article>
+
+        <article class="lf-card lf-reveal lf-delay-3">
+          <div class="lf-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M13 6L19 12L13 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="7" cy="12" r="2" stroke-width="2"></circle>
+            </svg>
+          </div>
+          <h3 class="lf-card__title">Redução de movimentação</h3>
+          <p class="lf-card__text">
+            Os componentes ficam exatamente onde são consumidos.
+            Menos passos, menos tempo gasto e menos desperdício operacional.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CONFIGURAÇÕES
+       ===================================================== -->
+  <section class="lf-section lf-section--alt">
+    <div class="lf-deco-grid lf-deco-grid--dark"></div>
+    <div class="lf-glow lf-glow--two"></div>
+
+    <div class="lf-container">
+      <div class="lf-config-wrap">
+
+        <div class="lf-config-content lf-reveal">
+          <h2 class="lf-title">Modulares e adaptáveis</h2>
+          <p class="lf-text">
+            Os flow racks Leanflex são montados com perfis tubulares e calhas de rolos ou corrediças,
+            ajustáveis em altura, profundidade e número de níveis para atender a lógica do seu fluxo.
+          </p>
+
+          <div class="lf-list-grid">
+            <div class="lf-list-item lf-reveal lf-delay-1">
+              <span class="lf-list-item__bullet" aria-hidden="true"></span>
+              <p class="lf-list-item__text">Flow rack com calhas de rolos para caixas plásticas</p>
+            </div>
+
+            <div class="lf-list-item lf-reveal lf-delay-2">
+              <span class="lf-list-item__bullet" aria-hidden="true"></span>
+              <p class="lf-list-item__text">Flow rack com corrediças para bandejas e peças</p>
+            </div>
+
+            <div class="lf-list-item lf-reveal lf-delay-3">
+              <span class="lf-list-item__bullet" aria-hidden="true"></span>
+              <p class="lf-list-item__text">Configurações com 2, 3 ou mais níveis</p>
+            </div>
+
+            <div class="lf-list-item lf-reveal lf-delay-4">
+              <span class="lf-list-item__bullet" aria-hidden="true"></span>
+              <p class="lf-list-item__text">Combinável com bancadas e carrinhos Leanflex</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lf-config-gallery">
+          <div class="lf-config-carousel lf-reveal lf-delay-1" data-lf-carousel>
+            <div class="lf-config-carousel__viewport">
+              <div class="lf-config-carousel__track">
+                <div class="lf-config-slide">
+                  <img src="img/Flow rack 1.png" alt="Configuração de flow rack com caixas plásticas">
+                </div>
+
+                <div class="lf-config-slide">
+                  <img src="img/Flow rack 2.png" alt="Flow rack com múltiplos níveis">
+                </div>
+
+                <div class="lf-config-slide">
+                  <img src="img/Flow rack 3.jpg" alt="Flow rack integrado ao abastecimento da linha">
+
+                </div>
+              </div>
+            </div>
+
+            <button class="lf-config-carousel__nav lf-config-carousel__nav--prev" type="button" aria-label="Imagem anterior">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 6L9 12L15 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+
+            <button class="lf-config-carousel__nav lf-config-carousel__nav--next" type="button" aria-label="Próxima imagem">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6L15 12L9 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+
+            <div class="lf-config-carousel__counter" aria-live="polite">
+              <span data-lf-carousel-current>1</span>/3
+            </div>
+
+            <div class="lf-config-carousel__dots" aria-label="Selecionar imagem do carrossel">
+              <button class="lf-config-carousel__dot is-active" type="button" aria-label="Ir para imagem 1"></button>
+              <button class="lf-config-carousel__dot" type="button" aria-label="Ir para imagem 2"></button>
+              <button class="lf-config-carousel__dot" type="button" aria-label="Ir para imagem 3"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       APLICAÇÕES
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-container">
+      <div class="lf-section-head lf-reveal">
+        <h2 class="lf-title">Onde o flow rack é mais aplicado</h2>
+        <p class="lf-text">
+          A versatilidade da estrutura permite adaptar o flow rack a operações que exigem
+          abastecimento contínuo, visibilidade de estoque e maior fluidez no processo.
+        </p>
+      </div>
+
+      <div class="lf-compact-list">
+        <div class="lf-compact-list__item lf-reveal lf-delay-1">
+          <div class="lf-compact-list__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L9 17L20 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-compact-list__text">Linhas de montagem com abastecimento contínuo</p>
+        </div>
+
+        <div class="lf-compact-list__item lf-reveal lf-delay-2">
+          <div class="lf-compact-list__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L9 17L20 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-compact-list__text">Supermercados internos no conceito Lean</p>
+        </div>
+
+        <div class="lf-compact-list__item lf-reveal lf-delay-3">
+          <div class="lf-compact-list__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L9 17L20 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-compact-list__text">Centros de distribuição e operações de picking</p>
+        </div>
+
+        <div class="lf-compact-list__item lf-reveal lf-delay-4">
+          <div class="lf-compact-list__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L9 17L20 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-compact-list__text">Almoxarifados e estoques intermediários</p>
+        </div>
+
+        <div class="lf-compact-list__item lf-reveal lf-delay-2">
+          <div class="lf-compact-list__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L9 17L20 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-compact-list__text">Indústria alimentícia com FIFO rigoroso</p>
+        </div>
+
+        <div class="lf-compact-list__item lf-reveal lf-delay-3">
+          <div class="lf-compact-list__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 12L9 17L20 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <p class="lf-compact-list__text">Abastecimento de células produtivas e estações de trabalho</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA FINAL + RELACIONADOS
+       ===================================================== -->
+  <section class="lf-section lf-section--dark">
+    <div class="lf-container">
+      <div class="lf-cta-box lf-reveal">
+        <h2 class="lf-title">Quer um flow rack configurado para o seu fluxo?</h2>
+        <p class="lf-text">
+          Conte como é o seu processo e nossa equipe projeta a solução ideal
+          para melhorar o abastecimento, a organização e a produtividade da sua operação.
+        </p>
+
+        <div class="lf-btn-group">
+          <a href="" class="lf-btn lf-btn--primary" data-lf-link="" aria-label="Solicitar orçamento">
+            <span>Solicitar orçamento</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="lf-related">
+          <h3 class="lf-related__title">Veja também</h3>
+
+          <div class="lf-related__links">
+            <a href="" class="lf-related__link" data-lf-link="" aria-label="Bancada de Trabalho">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Bancada de Trabalho</span>
+            </a>
+
+            <a href="" class="lf-related__link" data-lf-link="" aria-label="Carrinho de Movimentação">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Carrinho de Movimentação</span>
+            </a>
+
+            <a href="" class="lf-related__link" data-lf-link="" aria-label="Projetos Personalizados">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <span>Projetos Personalizados</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* =========================================================
+   NAVEGAÇÃO OPCIONAL
+   Mantém href="" conforme briefing e permite teste funcional
+   ========================================================= */
+document.addEventListener('click', function(e){
+  var link = e.target.closest('[data-lf-link]');
+  if(!link) return;
+
+  var target = link.getAttribute('data-lf-link');
+  if(target){
+    e.preventDefault();
+    window.location.href = target;
+  }
+});
+
+/* =========================================================
+   ANIMAÇÃO SUAVE NO SCROLL
+   ========================================================= */
+(function(){
+  var items = document.querySelectorAll('.lf-reveal');
+
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(item){
+      item.classList.add('is-visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold:0.14
+  });
+
+  items.forEach(function(item){
+    observer.observe(item);
+  });
+})();
+
+/* =========================================================
+   CARROSSEL DA SEÇÃO DE CONFIGURAÇÕES
+   ========================================================= */
+(function(){
+  var carousels = document.querySelectorAll('[data-lf-carousel]');
+
+  carousels.forEach(function(carousel){
+    var track = carousel.querySelector('.lf-config-carousel__track');
+    var slides = carousel.querySelectorAll('.lf-config-slide');
+    var prevBtn = carousel.querySelector('.lf-config-carousel__nav--prev');
+    var nextBtn = carousel.querySelector('.lf-config-carousel__nav--next');
+    var dots = carousel.querySelectorAll('.lf-config-carousel__dot');
+    var current = carousel.querySelector('[data-lf-carousel-current]');
+    var total = slides.length;
+    var index = 0;
+
+    function updateCarousel(){
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+      dots.forEach(function(dot, dotIndex){
+        dot.classList.toggle('is-active', dotIndex === index);
+      });
+
+      if(current){
+        current.textContent = index + 1;
+      }
+    }
+
+    function goToSlide(newIndex){
+      if(newIndex < 0){
+        index = total - 1;
+      }else if(newIndex >= total){
+        index = 0;
+      }else{
+        index = newIndex;
+      }
+
+      updateCarousel();
+    }
+
+    if(prevBtn){
+      prevBtn.addEventListener('click', function(){
+        goToSlide(index - 1);
+      });
+    }
+
+    if(nextBtn){
+      nextBtn.addEventListener('click', function(){
+        goToSlide(index + 1);
+      });
+    }
+
+    dots.forEach(function(dot, dotIndex){
+      dot.addEventListener('click', function(){
+        goToSlide(dotIndex);
+      });
+    });
+
+    updateCarousel();
+  });
+})();
+</script>

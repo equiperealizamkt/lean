@@ -1,0 +1,1446 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   LEANFLEX | PÁGINA DE PRODUTO
+   PRODUTO: BANCADA DE TRABALHO
+   VERSÃO: VISUAL PREMIUM
+   OBS: TODOS OS href="" E src="" MANTIDOS VAZIOS
+   ========================================================= */
+
+html, body{
+  margin:0 !important;
+  padding:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:transparent !important;
+}
+
+.lf-page{
+  --lf-green:#56AA43;
+  --lf-green-hover:#429133;
+  --lf-green-soft:#EEF7EB;
+  --lf-dark:#4D525A;
+  --lf-dark-2:#3E434A;
+  --lf-gray:#7B8087;
+  --lf-gray-soft:#A9ADB2;
+  --lf-white:#FFFFFF;
+  --lf-bg:#F5F6F5;
+  --lf-bg-2:#EEF1EE;
+  --lf-line:rgba(77,82,90,0.10);
+  --lf-radius:8px;
+  --lf-radius-lg:18px;
+  --lf-radius-xl:26px;
+  --lf-shadow:0 10px 30px rgba(0,0,0,0.08);
+  --lf-shadow-hover:0 20px 50px rgba(0,0,0,0.14);
+  --lf-shadow-soft:0 8px 22px rgba(0,0,0,0.05);
+  --lf-container:1280px;
+
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow-x:hidden;
+  position:relative;
+  font-family:'Barlow', sans-serif;
+  color:#555;
+  background:var(--lf-white);
+}
+
+.lf-page *,
+.lf-page *::before,
+.lf-page *::after{
+  box-sizing:border-box !important;
+}
+
+.lf-container{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0;
+}
+
+.lf-section,
+.lf-product-hero-full{
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-section{
+  padding:92px 0;
+}
+
+.lf-section--light{
+  background:var(--lf-white);
+}
+
+.lf-section--alt{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.05), transparent 28%),
+    linear-gradient(180deg, #F7F8F7 0%, #F2F4F2 100%);
+}
+
+.lf-section--dark{
+  background:linear-gradient(180deg, #4D525A 0%, #434850 100%);
+  color:var(--lf-white);
+}
+
+.lf-section-inner{
+  width:100%;
+  max-width:var(--lf-container);
+  margin:0 auto;
+  padding:0 28px;
+  position:relative;
+  z-index:2;
+}
+
+.lf-section-head{
+  max-width:880px;
+  margin-bottom:46px;
+}
+
+.lf-section-head--center{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.lf-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  padding:9px 16px;
+  border-radius:999px;
+  font-size:12px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--lf-green);
+  background:rgba(86,170,67,0.10);
+  border:1px solid rgba(86,170,67,0.16);
+  box-shadow:0 6px 18px rgba(86,170,67,0.08);
+}
+
+.lf-label::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--lf-green);
+  box-shadow:0 0 0 6px rgba(86,170,67,0.12);
+}
+
+.lf-title{
+  margin:0 0 16px;
+  font-size:clamp(28px, 3.1vw, 44px);
+  line-height:1.08;
+  font-weight:800;
+  color:var(--lf-dark);
+  letter-spacing:-0.02em;
+  position:relative;
+  padding-left:18px;
+}
+
+.lf-title::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:4px;
+  bottom:4px;
+  width:5px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--lf-green) 0%, #7FCF6D 100%);
+}
+
+.lf-heading-hero{
+  margin:0 0 18px;
+  font-size:clamp(34px, 5vw, 64px);
+  line-height:0.98;
+  font-weight:800;
+  letter-spacing:-0.03em;
+  color:var(--lf-dark);
+  text-wrap:balance;
+}
+
+.lf-heading-3{
+  margin:0 0 12px;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+  letter-spacing:-0.01em;
+}
+
+.lf-subtitle{
+  margin:0;
+  font-size:18px;
+  line-height:1.75;
+  color:#5A5F66;
+  max-width:760px;
+}
+
+.lf-text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  color:#5A5F66;
+}
+
+.lf-text + .lf-text{
+  margin-top:12px;
+}
+
+.lf-grid{
+  display:grid;
+  gap:24px;
+}
+
+.lf-grid--2{
+  grid-template-columns:repeat(2, minmax(0,1fr));
+}
+
+.lf-grid--3{
+  grid-template-columns:repeat(3, minmax(0,1fr));
+}
+
+.lf-grid--4{
+  grid-template-columns:repeat(4, minmax(0,1fr));
+}
+
+/* =========================================================
+   DECORAÇÕES DE FUNDO
+   ========================================================= */
+
+.lf-deco-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(77,82,90,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,82,90,0.035) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0.35), transparent 85%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.lf-glow{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(20px);
+  opacity:0.55;
+  z-index:0;
+}
+
+.lf-glow--one{
+  width:380px;
+  height:380px;
+  top:-120px;
+  right:-120px;
+  background:radial-gradient(circle, rgba(86,170,67,0.16) 0%, rgba(86,170,67,0) 70%);
+}
+
+.lf-glow--two{
+  width:260px;
+  height:260px;
+  bottom:-80px;
+  left:-60px;
+  background:radial-gradient(circle, rgba(77,82,90,0.08) 0%, rgba(77,82,90,0) 72%);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.lf-btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+
+.lf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:auto;
+  max-width:100%;
+  min-height:54px;
+  padding:14px 28px;
+  border-radius:999px;
+  border:1px solid transparent;
+  font-size:15px;
+  line-height:1.35;
+  font-weight:700;
+  text-decoration:none;
+  text-align:center;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+
+.lf-btn::before{
+  content:"";
+  position:absolute;
+  inset:auto auto 0 0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+}
+
+.lf-btn:hover::before{
+  transform:translateX(100%);
+}
+
+.lf-btn svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+.lf-btn--primary{
+  background:linear-gradient(180deg, var(--lf-green) 0%, #4B9A3B 100%);
+  color:var(--lf-white);
+  box-shadow:0 14px 28px rgba(86,170,67,0.20);
+}
+
+.lf-btn--primary:hover{
+  background:linear-gradient(180deg, #5EB94A 0%, var(--lf-green-hover) 100%);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+  box-shadow:0 18px 34px rgba(86,170,67,0.28);
+}
+
+.lf-btn--outline{
+  background:rgba(255,255,255,0.85);
+  border-color:rgba(77,82,90,0.18);
+  color:var(--lf-dark);
+  backdrop-filter:blur(8px);
+}
+
+.lf-btn--outline:hover{
+  background:var(--lf-dark);
+  border-color:var(--lf-dark);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.12);
+}
+
+.lf-btn--light{
+  background:transparent;
+  border-color:rgba(255,255,255,0.55);
+  color:#fff;
+}
+
+.lf-btn--light:hover{
+  background:#fff;
+  color:var(--lf-dark);
+  border-color:#fff;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.lf-product-hero-full{
+  min-height:740px;
+  display:flex;
+  align-items:center;
+  padding:140px 0;
+  background:
+    linear-gradient(100deg, rgba(44,48,54,0.94) 0%, rgba(53,58,64,0.88) 34%, rgba(64,69,76,0.64) 58%, rgba(77,82,90,0.32) 76%, rgba(77,82,90,0.16) 100%),
+    radial-gradient(circle at 82% 20%, rgba(86,170,67,0.20) 0%, rgba(86,170,67,0) 22%),
+    radial-gradient(circle at 18% 88%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 20%),
+    url("img/Imagem\ hero\ bancada.png") center center / cover no-repeat;
+}
+
+.lf-hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.22) 100%);
+  z-index:0;
+}
+
+.lf-hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.lf-heading-hero--light{
+  color:#fff !important;
+  text-shadow:0 8px 30px rgba(0,0,0,0.22);
+}
+
+.lf-subtitle--light{
+  color:rgba(255,255,255,0.88) !important;
+}
+
+.lf-product-hero-full .lf-label{
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.12);
+  box-shadow:none;
+}
+
+.lf-product-hero-full .lf-label::before{
+  background:#9BEA8A;
+  box-shadow:0 0 0 6px rgba(155,234,138,0.16);
+}
+
+.lf-hero-highlights{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:14px;
+  margin-top:32px;
+  max-width:520px;
+}
+
+.lf-hero-highlight{
+  padding:18px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.10);
+}
+
+.lf-hero-highlight__number{
+  display:block;
+  margin-bottom:6px;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-0.02em;
+}
+
+.lf-hero-highlight__text{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.82);
+  font-weight:500;
+}
+
+/* =========================================================
+   CARDS BENEFÍCIOS
+   ========================================================= */
+
+.lf-card{
+  position:relative;
+  height:100%;
+  padding:30px 24px 26px;
+  border-radius:22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,249,1) 100%);
+  border:1px solid rgba(77,82,90,0.08);
+  box-shadow:var(--lf-shadow-soft);
+  transition:transform .30s ease, box-shadow .30s ease, border-color .30s ease;
+  overflow:hidden;
+}
+
+.lf-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg, var(--lf-green) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -40px -40px auto;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(86,170,67,0.08) 0%, rgba(86,170,67,0) 72%);
+  pointer-events:none;
+}
+
+.lf-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 22px 42px rgba(0,0,0,0.12);
+  border-color:rgba(86,170,67,0.18);
+}
+
+.lf-card__icon{
+  width:58px;
+  height:58px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  border-radius:16px;
+  background:linear-gradient(180deg, rgba(86,170,67,0.14) 0%, rgba(86,170,67,0.08) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.8);
+  transition:transform .28s ease, background .28s ease;
+}
+
+.lf-card:hover .lf-card__icon{
+  transform:scale(1.06) rotate(-2deg);
+  background:linear-gradient(180deg, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-card__icon svg{
+  width:28px;
+  height:28px;
+  stroke:var(--lf-green);
+}
+
+.lf-card__title{
+  margin:0 0 10px;
+  font-size:20px;
+  line-height:1.26;
+  font-weight:700;
+  color:var(--lf-dark);
+  letter-spacing:-0.01em;
+}
+
+.lf-card__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.75;
+  color:#5A5F66;
+}
+
+/* =========================================================
+   CONFIGURAÇÕES
+   ========================================================= */
+
+.lf-config{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  align-items:stretch;
+}
+
+.lf-config__content{
+  background:rgba(255,255,255,0.60);
+  border:1px solid rgba(77,82,90,0.08);
+  border-radius:28px;
+  padding:34px 30px;
+  box-shadow:var(--lf-shadow-soft);
+  backdrop-filter:blur(6px);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+.lf-config__list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px;
+  margin-top:28px;
+  align-content:start;
+}
+
+.lf-config-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:18px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.92);
+  border:1px solid rgba(77,82,90,0.08);
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  min-height:84px;
+}
+
+.lf-config-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.08);
+  border-color:rgba(86,170,67,0.18);
+}
+
+.lf-config-item__icon{
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  margin-top:2px;
+}
+
+.lf-config-item__icon svg{
+  width:22px;
+  height:22px;
+  stroke:var(--lf-green);
+}
+
+.lf-config-item__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.55;
+  color:var(--lf-dark);
+  font-weight:600;
+}
+
+.lf-config__gallery{
+  display:block;
+  height:100%;
+}
+
+.lf-config__image{
+  position:relative;
+  width:100%;
+  min-height:696px;
+  height:100%;
+  border-radius:24px;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(86,170,67,0.10), rgba(77,82,90,0.06)),
+    #E9ECE9;
+  box-shadow:var(--lf-shadow);
+  isolation:isolate;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.lf-config__image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.00) 20%, rgba(0,0,0,0.12) 100%),
+    linear-gradient(135deg, rgba(255,255,255,0.16), rgba(86,170,67,0.10));
+  opacity:0;
+  transition:opacity .35s ease;
+  z-index:1;
+  pointer-events:none;
+}
+
+.lf-config__image::after{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:2;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.88);
+  color:var(--lf-dark);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+
+.lf-config__image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transform:scale(1);
+  transition:transform .70s ease, filter .70s ease;
+}
+
+.lf-config__image:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow-hover);
+}
+
+.lf-config__image:hover::before{
+  opacity:1;
+}
+
+.lf-config__image:hover::after{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-config__image:hover img{
+  transform:scale(1.08);
+  filter:brightness(1.05) saturate(1.03);
+}
+
+/* =========================================================
+   APLICAÇÕES
+   ========================================================= */
+
+.lf-application-wrap{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:30px;
+  align-items:start;
+}
+
+.lf-application-list{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:16px 20px;
+}
+
+.lf-application-item{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px 18px;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 100%);
+  border:1px solid rgba(77,82,90,0.08);
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.04);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.lf-application-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.08);
+  border-color:rgba(86,170,67,0.18);
+}
+
+.lf-application-item__icon{
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  margin-top:2px;
+}
+
+.lf-application-item__icon svg{
+  width:22px;
+  height:22px;
+  stroke:var(--lf-green);
+}
+
+.lf-application-item__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.55;
+  color:var(--lf-dark);
+  font-weight:600;
+}
+
+.lf-application-card{
+  padding:30px 28px;
+  border-radius:26px;
+  background:
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAF8 100%);
+  border:1px solid rgba(77,82,90,0.08);
+  box-shadow:var(--lf-shadow);
+}
+
+.lf-application-card__title{
+  margin:0 0 12px;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:800;
+  color:var(--lf-dark);
+}
+
+.lf-application-card__text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  color:#5A5F66;
+}
+
+.lf-application-card__divider{
+  width:100%;
+  height:1px;
+  margin:20px 0;
+  background:linear-gradient(90deg, rgba(86,170,67,0.18), rgba(77,82,90,0.06));
+}
+
+.lf-application-stat{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.lf-application-stat__badge{
+  min-width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:rgba(86,170,67,0.12);
+  color:var(--lf-green);
+  font-size:24px;
+  font-weight:800;
+}
+
+.lf-application-stat__text{
+  margin:0;
+  font-size:15px;
+  line-height:1.6;
+  color:#5A5F66;
+}
+
+/* =========================================================
+   CTA + RELACIONADOS
+   ========================================================= */
+
+.lf-cta-block{
+  display:grid;
+  grid-template-columns:1.08fr 0.92fr;
+  gap:28px;
+  align-items:stretch;
+}
+
+.lf-cta-box,
+.lf-related-box{
+  height:100%;
+  padding:34px 30px;
+  border-radius:28px;
+  box-shadow:var(--lf-shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-cta-box{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0) 28%),
+    linear-gradient(180deg, #4D525A 0%, #444951 100%);
+  color:var(--lf-white);
+}
+
+.lf-cta-box::before{
+  content:"";
+  position:absolute;
+  right:-60px;
+  bottom:-60px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 72%);
+  pointer-events:none;
+}
+
+.lf-cta-box .lf-title{
+  color:var(--lf-white);
+}
+
+.lf-cta-box .lf-title::before{
+  background:linear-gradient(180deg, #8DDF7A 0%, #56AA43 100%);
+}
+
+.lf-cta-box .lf-text{
+  color:rgba(255,255,255,0.88);
+}
+
+.lf-related-box{
+  background:linear-gradient(180deg, #FFFFFF 0%, #F8FAF8 100%);
+  border:1px solid rgba(77,82,90,0.08);
+}
+
+.lf-related-list{
+  display:grid;
+  gap:12px;
+  margin-top:12px;
+}
+
+.lf-related-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:#F4F6F4;
+  color:var(--lf-dark);
+  text-decoration:none;
+  font-size:16px;
+  line-height:1.4;
+  font-weight:700;
+  border:1px solid rgba(77,82,90,0.06);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.lf-related-link:hover{
+  background:rgba(86,170,67,0.12);
+  border-color:rgba(86,170,67,0.18);
+  color:var(--lf-dark);
+  transform:translateX(5px);
+  box-shadow:0 12px 24px rgba(0,0,0,0.06);
+}
+
+.lf-related-link svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+/* =========================================================
+   REVEAL ON SCROLL
+   ========================================================= */
+
+.lf-reveal{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.lf-reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-delay-1{ transition-delay:.08s; }
+.lf-delay-2{ transition-delay:.16s; }
+.lf-delay-3{ transition-delay:.24s; }
+.lf-delay-4{ transition-delay:.32s; }
+
+/* =========================================================
+   RESPONSIVO 1024
+   ========================================================= */
+
+@media (max-width:1024px){
+  .lf-section{
+    padding:76px 0;
+  }
+
+  .lf-section-inner{
+    padding:0 22px;
+  }
+
+  .lf-grid--4{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+
+  .lf-config{
+    grid-template-columns:1fr;
+  }
+
+  .lf-application-wrap{
+    grid-template-columns:1fr;
+  }
+
+  .lf-cta-block{
+    grid-template-columns:1fr;
+  }
+
+  .lf-product-hero-full{
+    min-height:auto;
+    padding:120px 0 90px;
+  }
+
+  .lf-hero-highlights{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    max-width:520px;
+  }
+
+  .lf-config__content{
+    height:auto;
+  }
+
+  .lf-config__image{
+    min-height:620px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVO 768
+   ========================================================= */
+
+@media (max-width:768px){
+  .lf-section{
+    padding:58px 0;
+  }
+
+  .lf-section-inner{
+    padding:0 20px;
+  }
+
+  .lf-product-hero-full{
+    padding:104px 0 72px;
+  }
+
+  .lf-grid--4,
+  .lf-grid--3{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+
+  .lf-config__list{
+    grid-template-columns:1fr;
+  }
+
+  .lf-application-list{
+    grid-template-columns:1fr;
+  }
+
+  .lf-btn-group{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .lf-btn{
+    width:100%;
+  }
+
+  .lf-hero-highlights{
+    grid-template-columns:1fr;
+    max-width:100%;
+  }
+
+  .lf-config__image{
+    min-height:540px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVO 560
+   ========================================================= */
+
+@media (max-width:560px){
+  .lf-grid--4,
+  .lf-grid--3,
+  .lf-grid--2{
+    grid-template-columns:1fr;
+  }
+
+  .lf-title{
+    font-size:clamp(24px, 7vw, 34px);
+  }
+
+  .lf-heading-hero{
+    font-size:clamp(28px, 9vw, 42px);
+  }
+
+  .lf-card,
+  .lf-cta-box,
+  .lf-related-box,
+  .lf-config__content,
+  .lf-application-card{
+    border-radius:22px;
+  }
+
+  .lf-config__image{
+    min-height:460px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVO 480
+   ========================================================= */
+
+@media (max-width:480px){
+  .lf-section-inner{
+    padding:0 16px;
+  }
+
+  .lf-section{
+    padding:48px 0;
+  }
+
+  .lf-product-hero-full{
+    padding:96px 0 64px;
+  }
+
+  .lf-card{
+    padding:24px 18px 22px;
+  }
+
+  .lf-cta-box,
+  .lf-related-box,
+  .lf-config__content,
+  .lf-application-card{
+    padding:24px 18px;
+  }
+
+  .lf-text,
+  .lf-card__text,
+  .lf-subtitle,
+  .lf-application-card__text{
+    font-size:15px;
+  }
+
+  .lf-label{
+    font-size:11px;
+    padding:8px 13px;
+  }
+
+  .lf-config__image{
+    min-height:400px;
+  }
+}
+</style>
+
+<div class="lf-page">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="lf-product-hero-full">
+    <div class="lf-hero-overlay"></div>
+    <div class="lf-deco-grid"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-inner">
+        <div class="lf-hero-content lf-reveal">
+
+          <h1 class="lf-heading-hero lf-heading-hero--light">
+            Bancada de Trabalho Modular
+          </h1>
+
+          <p class="lf-subtitle lf-subtitle--light">
+            Projetada para se adaptar a cada posto de trabalho, seja na linha de montagem,
+            na área de inspeção ou na oficina de manutenção. Mais flexibilidade para o processo,
+            mais organização para a operação e mais robustez para o dia a dia industrial.
+          </p>
+
+          <div class="lf-btn-group">
+            <a href="" class="lf-btn lf-btn--primary" aria-label="Solicitar orçamento">
+              <span>Solicitar orçamento</span>
+            </a>
+
+            <a href="" class="lf-btn lf-btn--light" aria-label="Falar pelo WhatsApp">
+              <span>Falar pelo WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="lf-hero-highlights">
+            <div class="lf-hero-highlight lf-reveal lf-delay-1">
+              <span class="lf-hero-highlight__number">100%</span>
+              <span class="lf-hero-highlight__text">Modular para diferentes layouts e rotinas</span>
+            </div>
+
+            <div class="lf-hero-highlight lf-reveal lf-delay-2">
+              <span class="lf-hero-highlight__number">+</span>
+              <span class="lf-hero-highlight__text">Opções de acessórios e composições sob demanda</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       BENEFÍCIOS
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-glow lf-glow--one"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-inner">
+        <div class="lf-section-head lf-reveal">
+          <h2 class="lf-title">Por que a bancada modular faz diferença na prática</h2>
+          <p class="lf-subtitle">
+            Mais do que uma estrutura de apoio, a bancada modular melhora a dinâmica operacional,
+            facilita ajustes futuros e contribui para um ambiente mais eficiente e organizado.
+          </p>
+        </div>
+
+        <div class="lf-grid lf-grid--4">
+          <article class="lf-card lf-reveal lf-delay-1">
+            <div class="lf-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 4L4 8L8 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M16 12L20 16L16 20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M20 8H4M4 16H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3 class="lf-card__title">Reconfiguração sem desperdício</h3>
+            <p class="lf-card__text">
+              Altere altura, inclua painéis, prateleiras ou suportes sem precisar substituir
+              toda a estrutura. Modularidade real para acompanhar a evolução do processo.
+            </p>
+          </article>
+
+          <article class="lf-card lf-reveal lf-delay-2">
+            <div class="lf-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3V21" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M7 7L12 3L17 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M7 17L12 21L17 17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3 class="lf-card__title">Ergonomia ajustável</h3>
+            <p class="lf-card__text">
+              Adapte a bancada ao operador e ao tipo de atividade, reduzindo esforço,
+              melhorando o conforto e favorecendo uma rotina mais segura.
+            </p>
+          </article>
+
+          <article class="lf-card lf-reveal lf-delay-3">
+            <div class="lf-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 6H19V18H5V6Z" stroke-width="2"></path>
+                <path d="M9 10H15M9 14H13" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <h3 class="lf-card__title">Gestão visual integrada</h3>
+            <p class="lf-card__text">
+              Ideal para painéis, quadros Kanban e elementos de organização visual
+              diretamente conectados à estrutura do posto de trabalho.
+            </p>
+          </article>
+
+          <article class="lf-card lf-reveal lf-delay-4">
+            <div class="lf-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3L19 7V12C19 16.4183 16.134 20.4183 12 21C7.866 20.4183 5 16.4183 5 12V7L12 3Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9 12L11 14L15 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3 class="lf-card__title">Durabilidade industrial</h3>
+            <p class="lf-card__text">
+              Estrutura robusta para suportar a rotina do ambiente fabril com estabilidade,
+              resistência e longa vida útil.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CONFIGURAÇÕES
+       ===================================================== -->
+  <section class="lf-section lf-section--alt">
+    <div class="lf-deco-grid"></div>
+    <div class="lf-glow lf-glow--two"></div>
+
+    <div class="lf-container">
+      <div class="lf-section-inner">
+        <div class="lf-config">
+          <div class="lf-config__content lf-reveal">
+            <h2 class="lf-title">Configurações disponíveis</h2>
+
+            <p class="lf-text">
+              A bancada Leanflex pode ser montada de diferentes formas conforme a necessidade do processo,
+              oferecendo mais aderência ao layout, à ergonomia do operador e à organização do fluxo de trabalho.
+            </p>
+
+            <div class="lf-config__list">
+              <div class="lf-config-item lf-reveal lf-delay-1">
+                <div class="lf-config-item__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <p class="lf-config-item__text">Bancada simples para trabalho manual</p>
+              </div>
+
+              <div class="lf-config-item lf-reveal lf-delay-2">
+                <div class="lf-config-item__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <p class="lf-config-item__text">Bancada com painel de gestão visual</p>
+              </div>
+
+              <div class="lf-config-item lf-reveal lf-delay-3">
+                <div class="lf-config-item__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <p class="lf-config-item__text">Bancada com prateleira inferior para componentes</p>
+              </div>
+
+              <div class="lf-config-item lf-reveal lf-delay-4">
+                <div class="lf-config-item__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <p class="lf-config-item__text">Bancada com suporte para monitor e equipamentos</p>
+              </div>
+
+              <div class="lf-config-item lf-reveal lf-delay-2">
+                <div class="lf-config-item__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <p class="lf-config-item__text">Configurações sob medida conforme briefing do cliente</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lf-config__gallery">
+            <div class="lf-config__image lf-reveal lf-delay-1">
+              <img src="img/Bancada.png" alt="Bancada modular Leanflex em configuração vertical ilustrativa">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       APLICAÇÕES
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-container">
+      <div class="lf-section-inner">
+        <div class="lf-section-head lf-reveal">
+          <h2 class="lf-title">Onde a bancada modular é mais aplicada</h2>
+          <p class="lf-subtitle">
+            Uma solução pensada para operações que exigem adaptação, organização e suporte confiável
+            em diferentes frentes de trabalho.
+          </p>
+        </div>
+
+        <div class="lf-application-wrap">
+          <div class="lf-application-list">
+            <div class="lf-application-item lf-reveal lf-delay-1">
+              <div class="lf-application-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <p class="lf-application-item__text">Linhas de montagem e submontagem</p>
+            </div>
+
+            <div class="lf-application-item lf-reveal lf-delay-2">
+              <div class="lf-application-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <p class="lf-application-item__text">Postos de inspeção e controle de qualidade</p>
+            </div>
+
+            <div class="lf-application-item lf-reveal lf-delay-3">
+              <div class="lf-application-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <p class="lf-application-item__text">Oficinas de manutenção</p>
+            </div>
+
+            <div class="lf-application-item lf-reveal lf-delay-4">
+              <div class="lf-application-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <p class="lf-application-item__text">Áreas de embalagem e expedição</p>
+            </div>
+
+            <div class="lf-application-item lf-reveal lf-delay-2">
+              <div class="lf-application-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12L10 17L19 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <p class="lf-application-item__text">Laboratórios industriais</p>
+            </div>
+          </div>
+
+          <aside class="lf-application-card lf-reveal">
+            <h3 class="lf-application-card__title">Uma estrutura que acompanha o processo</h3>
+            <p class="lf-application-card__text">
+              A bancada modular permite evoluções futuras sem comprometer o investimento inicial.
+              Isso significa mais inteligência no projeto, melhor aproveitamento do espaço e mais facilidade
+              para adequações ao longo do tempo.
+            </p>
+
+            <div class="lf-application-card__divider"></div>
+
+            <div class="lf-application-stat">
+              <div class="lf-application-stat__badge">+</div>
+              <p class="lf-application-stat__text">
+                Flexibilidade para integrar acessórios, gestão visual e recursos operacionais
+                conforme a necessidade de cada posto.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA FINAL
+       ===================================================== -->
+  <section class="lf-section lf-section--alt">
+    <div class="lf-container">
+      <div class="lf-section-inner">
+        <div class="lf-cta-block">
+          <div class="lf-cta-box lf-reveal">
+            <h2 class="lf-title">Quer uma bancada desenvolvida para o seu processo?</h2>
+            <p class="lf-text">
+              Vamos montar a configuração ideal para a sua operação, considerando layout,
+              ergonomia, rotina de uso e necessidades específicas do ambiente produtivo.
+            </p>
+
+            <div class="lf-btn-group">
+              <a href="" class="lf-btn lf-btn--primary" aria-label="Solicitar orçamento">
+                <span>Solicitar orçamento</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="lf-related-box lf-reveal lf-delay-2">
+            <h3 class="lf-heading-3">Veja também</h3>
+
+            <div class="lf-related-list">
+              <a href="" class="lf-related-link" aria-label="Ver produto Flow Rack">
+                <span>Flow Rack</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+
+              <a href="" class="lf-related-link" aria-label="Ver produto Carrinho de Movimentação">
+                <span>Carrinho de Movimentação</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+
+              <a href="" class="lf-related-link" aria-label="Ver produto Estrutura Modular">
+                <span>Estrutura Modular</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const elements = document.querySelectorAll('.lf-reveal');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    elements.forEach(el => observer.observe(el));
+  } else {
+    elements.forEach(el => el.classList.add('is-visible'));
+  }
+});
+</script>

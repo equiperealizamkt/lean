@@ -1,0 +1,1214 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap');
+
+/* =========================================================
+   RESET GLOBAL | REMOVE BORDAS EXTERNAS
+   ========================================================= */
+html, body{
+  margin:0 !important;
+  padding:0 !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+  background:#fff;
+  scroll-behavior:smooth;
+}
+
+/* =========================================================
+   LEANFLEX | PÁGINA DE CONTATO
+   VERSÃO PREMIUM
+   TODOS OS href="" E src="" MANTIDOS VAZIOS
+   ========================================================= */
+
+.lf-page{
+  --lf-green:#56AA43;
+  --lf-green-hover:#429133;
+  --lf-green-soft:#EEF7EB;
+  --lf-dark:#4D525A;
+  --lf-dark-2:#3F444B;
+  --lf-gray:#7C8086;
+  --lf-gray-soft:#AEB3B8;
+  --lf-white:#FFFFFF;
+  --lf-bg:#F5F6F5;
+  --lf-bg-2:#EEF1EE;
+  --lf-border:rgba(0,0,0,0.08);
+  --lf-radius:10px;
+  --lf-radius-lg:18px;
+  --lf-radius-xl:26px;
+  --lf-shadow:0 10px 30px rgba(0,0,0,0.08);
+  --lf-shadow-soft:0 8px 22px rgba(0,0,0,0.05);
+  --lf-shadow-hover:0 22px 46px rgba(0,0,0,0.14);
+  --lf-container:1280px;
+  --lf-hero-img:url('img/Imagem\ hero\ contato.png');
+
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  background:var(--lf-white);
+  font-family:'Barlow', sans-serif;
+  color:#555;
+  position:relative;
+}
+
+.lf-page *,
+.lf-page *::before,
+.lf-page *::after{
+  box-sizing:border-box !important;
+}
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+.lf-reveal{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.lf-reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.lf-delay-1{ transition-delay:.08s; }
+.lf-delay-2{ transition-delay:.16s; }
+.lf-delay-3{ transition-delay:.24s; }
+.lf-delay-4{ transition-delay:.32s; }
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+.lf-container{
+  width:100%;
+  max-width:var(--lf-container);
+  margin:0 auto;
+  padding:0 28px;
+  box-sizing:border-box;
+  position:relative;
+  z-index:2;
+}
+
+.lf-section{
+  position:relative;
+  overflow:hidden;
+  padding:92px 0;
+}
+
+.lf-section--light{
+  background:var(--lf-white);
+}
+
+.lf-section--alt{
+  background:
+    radial-gradient(circle at top right, rgba(86,170,67,0.05), transparent 28%),
+    linear-gradient(180deg, #F7F8F7 0%, #F2F4F2 100%);
+}
+
+.lf-section--dark{
+  background:linear-gradient(180deg, #4D525A 0%, #434850 100%);
+  color:var(--lf-white);
+}
+
+.lf-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  padding:9px 16px;
+  border-radius:999px;
+  font-size:12px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--lf-green);
+  background:rgba(86,170,67,0.10);
+  border:1px solid rgba(86,170,67,0.16);
+  box-shadow:0 6px 18px rgba(86,170,67,0.08);
+}
+
+.lf-label::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--lf-green);
+  box-shadow:0 0 0 6px rgba(86,170,67,0.12);
+}
+
+.lf-title{
+  margin:0 0 16px;
+  font-size:clamp(28px, 3.1vw, 44px);
+  line-height:1.08;
+  font-weight:800;
+  color:var(--lf-dark);
+  letter-spacing:-0.02em;
+  position:relative;
+  padding-left:18px;
+}
+
+.lf-title::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:4px;
+  bottom:4px;
+  width:5px;
+  border-radius:999px;
+  background:linear-gradient(180deg, var(--lf-green) 0%, #7FCF6D 100%);
+}
+
+.lf-section--dark .lf-title{
+  color:var(--lf-white);
+}
+
+.lf-text{
+  margin:0;
+  font-size:16px;
+  line-height:1.8;
+  font-weight:400;
+  color:#5A5F66;
+}
+
+.lf-section--dark .lf-text{
+  color:rgba(255,255,255,0.9);
+}
+
+.lf-text + .lf-text{
+  margin-top:12px;
+}
+
+.lf-section-head{
+  max-width:900px;
+  margin-bottom:46px;
+}
+
+/* =========================================================
+   DECORAÇÕES
+   ========================================================= */
+
+.lf-deco-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0.45), transparent 85%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.lf-deco-grid--dark{
+  background-image:
+    linear-gradient(rgba(77,82,90,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,82,90,0.03) 1px, transparent 1px);
+}
+
+.lf-glow{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(20px);
+  opacity:.55;
+  z-index:0;
+}
+
+.lf-glow--one{
+  width:360px;
+  height:360px;
+  top:-140px;
+  right:-100px;
+  background:radial-gradient(circle, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0) 70%);
+}
+
+.lf-glow--two{
+  width:260px;
+  height:260px;
+  left:-60px;
+  bottom:-80px;
+  background:radial-gradient(circle, rgba(77,82,90,0.08) 0%, rgba(77,82,90,0) 72%);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.lf-btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+
+.lf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid transparent;
+  font-size:15px;
+  line-height:1.3;
+  font-weight:700;
+  text-align:center;
+  transition:transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease;
+  cursor:pointer;
+  width:auto;
+  max-width:100%;
+  min-height:54px;
+  box-sizing:border-box;
+  font-family:'Barlow', sans-serif;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.22) 50%, transparent 80%);
+  transform:translateX(-130%);
+  transition:transform .7s ease;
+}
+
+.lf-btn:hover::after{
+  transform:translateX(130%);
+}
+
+.lf-btn svg,
+.lf-btn span{
+  position:relative;
+  z-index:1;
+}
+
+.lf-btn svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+.lf-btn--primary{
+  background:linear-gradient(180deg, var(--lf-green) 0%, #4B9A3B 100%);
+  color:var(--lf-white);
+  box-shadow:0 14px 28px rgba(86,170,67,0.18);
+}
+
+.lf-btn--primary:hover{
+  background:linear-gradient(180deg, #5EB94A 0%, var(--lf-green-hover) 100%);
+  color:var(--lf-white);
+  transform:translateY(-3px);
+  box-shadow:0 20px 34px rgba(86,170,67,0.25);
+}
+
+.lf-btn--outline{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.34);
+  color:#fff;
+  backdrop-filter:blur(8px);
+}
+
+.lf-btn--outline:hover{
+  background:#fff;
+  color:var(--lf-dark);
+  transform:translateY(-3px);
+}
+
+/* =========================================================
+   HERO COMPACTO
+   ========================================================= */
+
+.lf-hero{
+  padding:110px 0 104px;
+  text-align:center;
+  background:
+    linear-gradient(180deg, rgba(48,53,59,0.82) 0%, rgba(58,63,69,0.74) 100%),
+    radial-gradient(circle at top center, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0) 42%),
+    var(--lf-hero-img) center right / cover no-repeat;
+}
+
+.lf-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 45%),
+    linear-gradient(315deg, rgba(86,170,67,0.06) 0%, transparent 45%);
+  pointer-events:none;
+}
+
+.lf-hero__inner{
+  max-width:920px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+.lf-hero .lf-label{
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(255,255,255,0.12);
+  box-shadow:none;
+}
+
+.lf-hero .lf-label::before{
+  background:#9BEA8A;
+  box-shadow:0 0 0 6px rgba(155,234,138,0.16);
+}
+
+.lf-hero__title{
+  margin:0 0 18px;
+  font-size:clamp(34px, 5vw, 62px);
+  line-height:1.02;
+  font-weight:800;
+  color:var(--lf-white);
+  letter-spacing:-0.03em;
+  text-shadow:0 8px 30px rgba(0,0,0,0.20);
+}
+
+.lf-hero__text{
+  margin:0 auto;
+  max-width:760px;
+  font-size:18px;
+  line-height:1.8;
+  color:rgba(255,255,255,0.9);
+}
+
+.lf-hero-highlights{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:14px;
+  margin-top:32px;
+}
+
+.lf-hero-highlight{
+  padding:18px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.10);
+}
+
+.lf-hero-highlight__number{
+  display:block;
+  margin-bottom:6px;
+  font-size:24px;
+  line-height:1;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-0.02em;
+}
+
+.lf-hero-highlight__text{
+  display:block;
+  font-size:14px;
+  line-height:1.45;
+  color:rgba(255,255,255,0.82);
+  font-weight:500;
+}
+
+/* =========================================================
+   GRID PRINCIPAL
+   ========================================================= */
+
+.lf-contact-grid{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:28px;
+  align-items:start;
+}
+
+.lf-card{
+  background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,250,249,1) 100%);
+  border:1px solid var(--lf-border);
+  border-radius:26px;
+  box-shadow:var(--lf-shadow-soft);
+  padding:34px 30px;
+  height:100%;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.lf-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg, var(--lf-green) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--lf-shadow);
+  border-color:rgba(86,170,67,0.16);
+}
+
+.lf-card__title{
+  margin:0 0 18px;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:700;
+  color:var(--lf-dark);
+  letter-spacing:-0.01em;
+}
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.lf-form{
+  display:grid;
+  gap:16px;
+}
+
+.lf-form__row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.lf-form__group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.lf-form__label{
+  font-size:14px;
+  line-height:1.4;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-form__control{
+  width:100%;
+  max-width:100%;
+  min-height:54px;
+  border:1px solid rgba(77,82,90,0.14);
+  border-radius:16px;
+  padding:14px 16px;
+  font-size:15px;
+  line-height:1.4;
+  color:var(--lf-dark);
+  background:#fff;
+  outline:none;
+  font-family:'Barlow', sans-serif;
+  transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease, background .25s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.lf-form__control:hover{
+  border-color:rgba(86,170,67,0.35);
+  background:#fcfdfc;
+}
+
+.lf-form__control:focus{
+  border-color:var(--lf-green);
+  box-shadow:0 0 0 4px rgba(86,170,67,0.12);
+  transform:translateY(-1px);
+}
+
+textarea.lf-form__control{
+  min-height:148px;
+  resize:vertical;
+}
+
+.lf-form__actions{
+  padding-top:8px;
+}
+
+/* =========================================================
+   CANAIS DIRETOS
+   ========================================================= */
+
+.lf-channel-list{
+  display:grid;
+  gap:14px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+.lf-channel{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:16px 16px;
+  background:linear-gradient(180deg, #fafafa 0%, #f2f4f2 100%);
+  border:1px solid rgba(0,0,0,0.04);
+  border-radius:18px;
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.lf-channel:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(0,0,0,0.08);
+  border-color:rgba(86,170,67,0.16);
+}
+
+.lf-channel__icon{
+  width:46px;
+  height:46px;
+  min-width:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:linear-gradient(180deg, rgba(86,170,67,0.14) 0%, rgba(86,170,67,0.08) 100%);
+  transition:transform .28s ease, background .28s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.lf-channel:hover .lf-channel__icon{
+  transform:scale(1.08);
+  background:linear-gradient(180deg, rgba(86,170,67,0.18) 0%, rgba(86,170,67,0.10) 100%);
+}
+
+.lf-channel__icon svg{
+  width:22px;
+  height:22px;
+  stroke:var(--lf-green);
+}
+
+.lf-channel__content{
+  flex:1 1 0%;
+  min-width:0;
+}
+
+.lf-channel__label{
+  display:block;
+  margin-bottom:4px;
+  font-size:12px;
+  line-height:1.3;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--lf-gray);
+}
+
+.lf-channel__text,
+.lf-channel__link{
+  font-size:16px;
+  line-height:1.6;
+  color:var(--lf-dark);
+  text-decoration:none;
+  word-break:break-word;
+}
+
+.lf-channel__link:hover{
+  color:var(--lf-green);
+}
+
+.lf-direct-cta{
+  margin-top:22px;
+}
+
+.lf-map-wrap{
+  margin-top:22px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.08);
+  background:
+    linear-gradient(135deg, rgba(86,170,67,0.10), rgba(77,82,90,0.06)),
+    #E9ECE8;
+  min-height:280px;
+  box-shadow:0 12px 26px rgba(0,0,0,0.06);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.lf-map-wrap:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 36px rgba(0,0,0,0.10);
+}
+
+.lf-map-wrap iframe{
+  width:100%;
+  height:280px;
+  border:0;
+  display:block;
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.lf-faq-wrap{
+  max-width:980px;
+  margin:0 auto;
+}
+
+.lf-faq-list{
+  display:grid;
+  gap:14px;
+}
+
+.lf-faq-item{
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:22px;
+  background:linear-gradient(180deg, #FFFFFF 0%, #FAFBFA 100%);
+  overflow:hidden;
+  box-shadow:var(--lf-shadow-soft);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.lf-faq-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.08);
+  border-color:rgba(86,170,67,0.14);
+}
+
+.lf-faq-question{
+  width:100%;
+  border:0;
+  background:transparent;
+  padding:20px 20px;
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  text-align:left;
+  cursor:pointer;
+  font-family:'Barlow', sans-serif;
+}
+
+.lf-faq-question-icon{
+  width:20px;
+  height:20px;
+  min-width:20px;
+  flex-shrink:0;
+  margin-top:2px;
+  position:relative;
+}
+
+.lf-faq-question-icon::before,
+.lf-faq-question-icon::after{
+  content:"";
+  position:absolute;
+  background:var(--lf-green);
+  border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+.lf-faq-question-icon::before{
+  width:16px;
+  height:2px;
+  top:9px;
+  left:2px;
+}
+
+.lf-faq-question-icon::after{
+  width:2px;
+  height:16px;
+  top:2px;
+  left:9px;
+}
+
+.lf-faq-item.is-open .lf-faq-question-icon::after{
+  opacity:0;
+  transform:scaleY(.5);
+}
+
+.lf-faq-question-text{
+  flex:1 1 0%;
+  min-width:0;
+  word-break:break-word;
+  font-size:18px;
+  line-height:1.5;
+  font-weight:700;
+  color:var(--lf-dark);
+}
+
+.lf-faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+
+.lf-faq-item.is-open .lf-faq-answer{
+  max-height:800px;
+}
+
+.lf-faq-answer-inner{
+  padding:0 20px 20px 54px;
+}
+
+.lf-faq-answer-inner p{
+  margin:0;
+  font-size:16px;
+  line-height:1.78;
+  color:#555;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width:1024px){
+  .lf-container{
+    padding:0 22px;
+  }
+
+  .lf-section{
+    padding:76px 0;
+  }
+
+  .lf-hero{
+    padding:84px 0;
+    background-position:center center;
+  }
+
+  .lf-contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:768px){
+  .lf-section{
+    padding:58px 0;
+  }
+
+  .lf-container{
+    padding:0 20px;
+  }
+
+  .lf-hero__text{
+    font-size:16px;
+  }
+
+  .lf-btn-group{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .lf-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .lf-card{
+    padding:24px 20px;
+  }
+
+  .lf-form__row{
+    grid-template-columns:1fr;
+  }
+
+  .lf-hero-highlights{
+    grid-template-columns:1fr;
+  }
+
+  .lf-hero{
+    background-position:center center;
+  }
+}
+
+@media (max-width:480px){
+  .lf-section{
+    padding:48px 0;
+  }
+
+  .lf-container{
+    padding:0 16px;
+  }
+
+  .lf-hero__title{
+    font-size:clamp(28px, 9vw, 42px);
+  }
+
+  .lf-card{
+    padding:22px 16px;
+    border-radius:22px;
+  }
+
+  .lf-faq-question{
+    padding:16px 14px;
+  }
+
+  .lf-faq-question-text{
+    font-size:15px;
+  }
+
+  .lf-faq-answer-inner{
+    padding:0 14px 16px 42px;
+  }
+
+  .lf-faq-answer-inner p{
+    font-size:13px;
+  }
+
+  .lf-hero{
+    background-position:center center;
+  }
+}
+</style>
+
+<div class="lf-page">
+
+  <!-- =====================================================
+       HERO COMPACTO
+       ===================================================== -->
+  <section class="lf-section lf-section--dark lf-hero">
+    <div class="lf-deco-grid"></div>
+
+    <div class="lf-container">
+      <div class="lf-hero__inner lf-reveal">
+
+        <h1 class="lf-hero__title">Fale com a Leanflex</h1>
+
+        <p class="lf-hero__text">
+          Seja para tirar uma dúvida, solicitar um orçamento ou começar um projeto,
+          estamos disponíveis e respondemos com agilidade.
+        </p>
+
+        <div class="lf-hero-highlights">
+          <div class="lf-hero-highlight lf-reveal lf-delay-1">
+            <span class="lf-hero-highlight__number">Rápido</span>
+            <span class="lf-hero-highlight__text">Atendimento direto para dúvidas e orçamentos</span>
+          </div>
+
+          <div class="lf-hero-highlight lf-reveal lf-delay-2">
+            <span class="lf-hero-highlight__number">Flexível</span>
+            <span class="lf-hero-highlight__text">Soluções personalizadas para cada necessidade</span>
+          </div>
+
+          <div class="lf-hero-highlight lf-reveal lf-delay-3">
+            <span class="lf-hero-highlight__number">Nacional</span>
+            <span class="lf-hero-highlight__text">Atendimento para projetos em diferentes regiões</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FORMULÁRIO + CANAIS
+       ===================================================== -->
+  <section class="lf-section lf-section--alt">
+    <div class="lf-glow lf-glow--one"></div>
+
+    <div class="lf-container">
+      <div class="lf-contact-grid">
+
+        <!-- COLUNA ESQUERDA - FORMULÁRIO -->
+        <div class="lf-card lf-reveal">
+          <h2 class="lf-title">Envie sua mensagem</h2>
+
+          <form class="lf-form" action="" method="post">
+            <div class="lf-form__group">
+              <label class="lf-form__label" for="lf-nome">Nome completo</label>
+              <input class="lf-form__control" type="text" id="lf-nome" name="nome" required>
+            </div>
+
+            <div class="lf-form__group">
+              <label class="lf-form__label" for="lf-empresa">Empresa</label>
+              <input class="lf-form__control" type="text" id="lf-empresa" name="empresa">
+            </div>
+
+            <div class="lf-form__row">
+              <div class="lf-form__group">
+                <label class="lf-form__label" for="lf-email">E-mail</label>
+                <input class="lf-form__control" type="email" id="lf-email" name="email" required>
+              </div>
+
+              <div class="lf-form__group">
+                <label class="lf-form__label" for="lf-telefone">Telefone / WhatsApp</label>
+                <input class="lf-form__control" type="tel" id="lf-telefone" name="telefone">
+              </div>
+            </div>
+
+            <div class="lf-form__group">
+              <label class="lf-form__label" for="lf-assunto">Assunto</label>
+              <select class="lf-form__control" id="lf-assunto" name="assunto">
+                <option value="">Selecione</option>
+                <option value="Solicitar orçamento">Solicitar orçamento</option>
+                <option value="Projeto personalizado">Projeto personalizado</option>
+                <option value="Dúvida sobre produto">Dúvida sobre produto</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+
+            <div class="lf-form__group">
+              <label class="lf-form__label" for="lf-mensagem">Mensagem</label>
+              <textarea class="lf-form__control" id="lf-mensagem" name="mensagem" rows="5"></textarea>
+            </div>
+
+            <div class="lf-form__actions">
+              <button type="submit" class="lf-btn lf-btn--primary">
+                <span>Enviar mensagem</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- COLUNA DIREITA - CANAIS -->
+        <div class="lf-card lf-reveal lf-delay-1">
+          <h2 class="lf-title">Outros canais</h2>
+
+          <ul class="lf-channel-list">
+            <li class="lf-channel">
+              <div class="lf-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M20 11.5C20 16.1944 16.1944 20 11.5 20C10.0094 20 8.60845 19.6176 7.38929 18.9461L4 20L5.05386 16.6107C4.38239 15.3916 4 13.9906 4 12.5C4 7.80558 7.80558 4 12.5 4C17.1944 4 21 7.80558 21 12.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="lf-channel__content">
+                <span class="lf-channel__label">WhatsApp</span>
+                <a class="lf-channel__link" href="" data-lf-link="">(41) 99584-0097</a>
+              </div>
+            </li>
+
+            <li class="lf-channel">
+              <div class="lf-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 4H9L11 9L8.5 10.5C9.57143 12.6429 11.3571 14.4286 13.5 15.5L15 13L20 15V19C20 19.5523 19.5523 20 19 20C10.7157 20 4 13.2843 4 5C4 4.44772 4.44772 4 5 4Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="lf-channel__content">
+                <span class="lf-channel__label">Telefone</span>
+                <span class="lf-channel__text">(41) 3677-4700</span>
+              </div>
+            </li>
+
+            <li class="lf-channel">
+              <div class="lf-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7L12 13L20 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M5 5H19C20.1046 5 21 5.89543 21 7V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V7C3 5.89543 3.89543 5 5 5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="lf-channel__content">
+                <span class="lf-channel__label">E-mail</span>
+                <a class="lf-channel__link" href="" data-lf-link="">isoflex@isoflex.com.br</a>
+              </div>
+            </li>
+
+            <li class="lf-channel">
+              <div class="lf-channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21C12 21 19 14.5 19 9C19 5.13401 15.866 2 12 2C8.13401 2 5 5.13401 5 9C5 14.5 12 21 12 21Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <circle cx="12" cy="9" r="2.5" stroke-width="2"></circle>
+                </svg>
+              </div>
+              <div class="lf-channel__content">
+                <span class="lf-channel__label">Endereço</span>
+                <span class="lf-channel__text">Rua Jose Budel, 71 — Curitiba / PR</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="lf-direct-cta">
+            <a href="" class="lf-btn lf-btn--primary" data-lf-link="" aria-label="Falar direto no WhatsApp">
+              <span>Falar direto no WhatsApp</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 11.5C20 16.1944 16.1944 20 11.5 20C10.0094 20 8.60845 19.6176 7.38929 18.9461L4 20L5.05386 16.6107C4.38239 15.3916 4 13.9906 4 12.5C4 7.80558 7.80558 4 12.5 4C17.1944 4 21 7.80558 21 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="lf-map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21057.840411220823!2d-49.38246131395447!3d-25.372161809301367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dd21c57ffe8c57%3A0xfb284f129f6c31fe!2sIsoflex%20%7C%20Solu%C3%A7%C3%B5es%20para%20Gest%C3%A3o%20Visual!5e0!3m2!1spt-BR!2sbr!4v1776966694035!5m2!1spt-BR!2sbr"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+              title="Mapa de localização Leanflex">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FAQ
+       ===================================================== -->
+  <section class="lf-section lf-section--light">
+    <div class="lf-glow lf-glow--two"></div>
+
+    <div class="lf-container">
+      <div class="lf-faq-wrap">
+        <div class="lf-section-head lf-reveal" style="margin-left:auto; margin-right:auto;">
+          <h2 class="lf-title">Perguntas frequentes</h2>
+          <p class="lf-text">
+            Reunimos algumas respostas para facilitar seu contato e dar mais clareza sobre o atendimento.
+          </p>
+        </div>
+
+        <div class="lf-faq-list">
+
+          <div class="lf-faq-item is-open lf-reveal">
+            <button class="lf-faq-question" type="button" aria-expanded="true">
+              <span class="lf-faq-question-icon" aria-hidden="true"></span>
+              <span class="lf-faq-question-text">Os produtos podem ser personalizados?</span>
+            </button>
+            <div class="lf-faq-answer" style="max-height: 800px;">
+              <div class="lf-faq-answer-inner">
+                <p>
+                  Sim. Toda a linha Leanflex é modular por natureza, o que permite ajustes de dimensão,
+                  configuração e acessórios. Além disso, desenvolvemos projetos completamente sob medida
+                  para necessidades específicas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lf-faq-item lf-reveal lf-delay-1">
+            <button class="lf-faq-question" type="button" aria-expanded="false">
+              <span class="lf-faq-question-icon" aria-hidden="true"></span>
+              <span class="lf-faq-question-text">Vocês fazem entrega em todo o Brasil?</span>
+            </button>
+            <div class="lf-faq-answer">
+              <div class="lf-faq-answer-inner">
+                <p>
+                  Sim, atendemos em todo o território nacional. Entre em contato para verificar
+                  prazo e condições de frete para a sua região.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lf-faq-item lf-reveal lf-delay-2">
+            <button class="lf-faq-question" type="button" aria-expanded="false">
+              <span class="lf-faq-question-icon" aria-hidden="true"></span>
+              <span class="lf-faq-question-text">Qual é o prazo médio de produção e entrega?</span>
+            </button>
+            <div class="lf-faq-answer">
+              <div class="lf-faq-answer-inner">
+                <p>
+                  O prazo varia conforme o produto e a quantidade. Para projetos padrão, trabalhamos
+                  com prazos competitivos; para projetos personalizados, informamos o prazo na proposta.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lf-faq-item lf-reveal lf-delay-3">
+            <button class="lf-faq-question" type="button" aria-expanded="false">
+              <span class="lf-faq-question-icon" aria-hidden="true"></span>
+              <span class="lf-faq-question-text">Como funciona o processo de orçamento?</span>
+            </button>
+            <div class="lf-faq-answer">
+              <div class="lf-faq-answer-inner">
+                <p>
+                  Basta nos enviar o que você precisa, pelo formulário, WhatsApp ou e-mail,
+                  que nossa equipe entra em contato para entender melhor e enviar a proposta.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lf-faq-item lf-reveal lf-delay-2">
+            <button class="lf-faq-question" type="button" aria-expanded="false">
+              <span class="lf-faq-question-icon" aria-hidden="true"></span>
+              <span class="lf-faq-question-text">Os produtos são compatíveis entre si?</span>
+            </button>
+            <div class="lf-faq-answer">
+              <div class="lf-faq-answer-inner">
+                <p>
+                  Sim. Bancadas, flow racks e carrinhos Leanflex utilizam o mesmo sistema de perfis
+                  e conectores, permitindo criar soluções integradas e sistemas logísticos completos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lf-faq-item lf-reveal lf-delay-3">
+            <button class="lf-faq-question" type="button" aria-expanded="false">
+              <span class="lf-faq-question-icon" aria-hidden="true"></span>
+              <span class="lf-faq-question-text">Vocês oferecem suporte pós-venda?</span>
+            </button>
+            <div class="lf-faq-answer">
+              <div class="lf-faq-answer-inner">
+                <p>
+                  Sim. Estamos disponíveis para ajustes, ampliações e reconfigurações após a entrega.
+                  A modularidade dos nossos produtos facilita qualquer evolução futura.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* =========================================================
+   NAVEGAÇÃO OPCIONAL
+   ========================================================= */
+document.addEventListener('click', function(e){
+  var link = e.target.closest('[data-lf-link]');
+  if(link){
+    var target = link.getAttribute('data-lf-link');
+    if(target){
+      e.preventDefault();
+      window.location.href = target;
+    }
+  }
+});
+
+/* =========================================================
+   FAQ ACCORDION
+   ========================================================= */
+document.querySelectorAll('.lf-faq-question').forEach(function(button){
+  button.addEventListener('click', function(){
+    var item = button.closest('.lf-faq-item');
+    var answer = item.querySelector('.lf-faq-answer');
+    var isOpen = item.classList.contains('is-open');
+
+    document.querySelectorAll('.lf-faq-item').forEach(function(otherItem){
+      otherItem.classList.remove('is-open');
+      otherItem.querySelector('.lf-faq-question').setAttribute('aria-expanded', 'false');
+      otherItem.querySelector('.lf-faq-answer').style.maxHeight = '0px';
+    });
+
+    if(!isOpen){
+      item.classList.add('is-open');
+      button.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+/* =========================================================
+   ANIMAÇÃO DE ENTRADA NO SCROLL
+   ========================================================= */
+(function(){
+  var items = document.querySelectorAll('.lf-reveal');
+
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(item){
+      item.classList.add('is-visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold:0.14
+  });
+
+  items.forEach(function(item){
+    observer.observe(item);
+  });
+})();
+</script>
